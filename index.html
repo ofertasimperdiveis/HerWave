@@ -1,618 +1,1600 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FemSync — Protocolo Noturno de Desaceleração Feminina</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>CorpoLeve — O Ritual de 12 Minutos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#FAFAF8;--bg2:#F3EEE8;--dark:#1C1814;--dark2:#232018;
-  --nude:#EAD9C8;--nude2:#D4BFA8;
-  --rose:#C0614F;--rose2:#A84D3C;
-  --gold:#B8963E;--gold-light:#EED8A0;
-  --text:#1A1410;--text2:#4A3F38;--text3:#7A6D65;
-  --border:#DDD5C8;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
-h1,h2,h3{font-family:'Lora',serif;font-weight:600;line-height:1.2;}
-p{line-height:1.8;font-weight:300;}
-.tc{text-align:center;}
-.c{max-width:640px;margin:0 auto;padding:0 20px;}
-.cw{max-width:880px;margin:0 auto;padding:0 20px;}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── TOPBAR ── */
-.topbar{background:var(--dark);color:#C0B0A0;text-align:center;padding:11px 20px;font-size:13px;font-weight:300;}
-.topbar strong{color:var(--gold-light);font-weight:500;}
+  :root {
+    --nude: #F5E6D8;
+    --nude-deep: #EAD4C0;
+    --beige: #F8F1E9;
+    --off-white: #FDFAF6;
+    --lavender: #EDE8F5;
+    --lavender-deep: #DDD4F0;
+    --gold: #BFA070;
+    --gold-light: #D4B98A;
+    --text-dark: #2A2018;
+    --text-mid: #5A4E42;
+    --text-soft: #8A7B6E;
+    --rose: #D4826A;
+    --rose-light: #F0C4B4;
+    --cream: #FBF6F0;
+    --white: #FFFFFF;
+  }
 
-/* ── NAV ── */
-.nav{background:var(--bg);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:center;}
-.logo{font-family:'Lora',serif;font-size:18px;color:var(--text);letter-spacing:.05em;}
-.logo-sub{font-size:10px;color:var(--rose);letter-spacing:.18em;text-transform:uppercase;font-weight:500;margin-left:8px;vertical-align:middle;}
+  html { scroll-behavior: smooth; }
 
-/* ── HERO ── */
-.hero{background:var(--dark);padding:72px 20px 80px;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(192,97,79,.09) 0%,transparent 60%);pointer-events:none;}
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--off-white);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-.hero-label{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:500;padding:7px 16px;border:1px solid rgba(192,97,79,.3);border-radius:40px;margin-bottom:28px;background:rgba(192,97,79,.07);}
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1.25;
+  }
 
-.hero h1{font-size:clamp(28px,5.5vw,50px);color:#F2E8DE;max-width:620px;margin:0 auto 18px;line-height:1.15;}
-.hero h1 em{color:var(--rose);font-style:italic;}
+  img { max-width: 100%; display: block; }
 
-/* tension line */
-.hero-tension{font-size:17px;color:#8A7E74;max-width:520px;margin:0 auto 36px;font-weight:300;line-height:1.75;font-family:'Lora',serif;font-style:italic;}
+  /* ─── TOPBAR ─── */
+  .topbar {
+    background: var(--text-dark);
+    color: var(--nude);
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+  }
 
-/* wave */
-.hero-wave{margin:0 auto 40px;width:260px;height:48px;}
-.hero-wave svg{opacity:.7;}
+  /* ─── HERO ─── */
+  .hero {
+    background: linear-gradient(160deg, var(--nude) 0%, var(--beige) 50%, var(--lavender) 100%);
+    padding: 80px 24px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
 
-.btn{display:inline-block;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.02em;border-radius:6px;text-decoration:none;cursor:pointer;transition:all .2s;border:none;}
-.btn-primary{background:var(--rose);color:#FFF2EE;font-size:16px;padding:20px 44px;box-shadow:0 4px 20px rgba(192,97,79,.45);}
-.btn-primary:hover{background:var(--rose2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(192,97,79,.55);}
-.btn-outline{background:transparent;color:#8A7E74;font-size:15px;padding:15px 36px;border:1px solid rgba(138,126,116,.3);}
-.btn-outline:hover{border-color:rgba(138,126,116,.55);color:#AFA098;}
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,130,106,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-.hero-micro{margin-top:16px;font-size:13px;color:#3A3430;}
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(191,160,112,0.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-/* ── RECOGNITION BAND ── */
-.rband{background:var(--rose);padding:28px 20px;text-align:center;}
-.rband p{font-family:'Lora',serif;font-style:italic;font-size:18px;color:#FFF0EC;line-height:1.6;max-width:560px;margin:0 auto;}
-.rband strong{font-style:normal;font-weight:600;}
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(191,160,112,0.12);
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 28px;
+  }
 
-/* ── DOR (SEÇÃO 1 — IDENTIFICAÇÃO VISCERAL) ── */
-.sec-dor{background:var(--bg2);padding:72px 20px;border-bottom:1px solid var(--border);}
-.sec-label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);font-weight:500;margin-bottom:14px;}
+  .hero h1 {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 600;
+    color: var(--text-dark);
+    max-width: 780px;
+    margin: 0 auto 24px;
+  }
 
-.dor-list{max-width:580px;margin:40px auto 48px;display:flex;flex-direction:column;gap:0;}
-.dor-item{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--border);}
-.dor-item:last-child{border-bottom:none;}
-.dor-check{color:var(--rose);font-size:18px;flex-shrink:0;margin-top:2px;opacity:.8;}
-.dor-text{font-size:15px;color:var(--text2);font-weight:300;line-height:1.6;}
-.dor-text strong{color:var(--text);font-weight:500;}
+  .hero h1 em {
+    font-style: italic;
+    color: var(--rose);
+  }
 
-/* tension escalation block */
-.tension-block{max-width:520px;margin:0 auto;padding:32px;background:var(--bg);border:1px solid var(--border);border-radius:12px;border-left:3px solid var(--rose);}
-.tension-block p{font-size:16px;color:var(--text2);font-weight:300;line-height:1.8;margin-bottom:12px;}
-.tension-block p:last-child{margin-bottom:0;}
-.tension-block strong{color:var(--text);font-weight:500;}
+  .hero-sub {
+    font-size: clamp(16px, 2.2vw, 19px);
+    color: var(--text-mid);
+    max-width: 560px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
 
-/* ── TURNING POINT ── */
-.sec-turn{background:var(--bg);padding:72px 20px;}
-.turn-h{font-size:clamp(24px,4vw,36px);color:var(--text);max-width:500px;margin:0 auto 14px;}
-.turn-sub{font-size:16px;color:var(--text2);max-width:480px;margin:0 auto 48px;font-weight:300;line-height:1.8;}
+  .hero-bullets {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 18px;
+    margin-bottom: 48px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-.turn-steps{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:0;}
-.turn-step{display:flex;gap:20px;padding:26px 0;border-bottom:1px solid var(--border);}
-.turn-step:last-child{border-bottom:none;}
-.turn-num{font-family:'Lora',serif;font-size:36px;color:rgba(192,97,79,.2);font-weight:600;line-height:1;min-width:44px;flex-shrink:0;}
-.turn-body h4{font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--text);margin-bottom:7px;}
-.turn-body p{font-size:14px;color:var(--text2);font-weight:300;line-height:1.75;}
-.turn-body p strong{color:var(--text);font-weight:500;}
+  .hero-bullet {
+    font-size: 14px;
+    color: var(--text-mid);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
 
-.turn-cta-wrap{text-align:center;padding-top:48px;}
-.turn-cta-note{margin-top:14px;font-size:13px;color:var(--text3);}
+  .hero-bullet::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
 
-/* ── DEPOIS: TANGIBILIZAÇÃO ── */
-.sec-depois{background:var(--dark);padding:80px 20px;position:relative;overflow:hidden;}
-.sec-depois::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 40%,rgba(184,150,62,.06) 0%,transparent 55%);pointer-events:none;}
-.sec-depois .sec-label{color:var(--gold);}
-.sec-depois h2{color:#F0E4D8;font-size:clamp(22px,3.5vw,32px);max-width:460px;margin:0 auto 48px;}
+  .cta-btn {
+    display: inline-block;
+    background: var(--rose);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 18px 48px;
+    border-radius: 60px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 32px rgba(212,130,106,0.30);
+    letter-spacing: 0.01em;
+  }
 
-.depois-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:620px;margin:0 auto 0;}
-@media(max-width:520px){.depois-grid{grid-template-columns:1fr;}}
-.depois-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:22px 20px;}
-.depois-icon{font-size:22px;margin-bottom:12px;display:block;opacity:.75;}
-.depois-item h4{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:#D4C8BC;margin-bottom:7px;}
-.depois-item p{font-size:13px;color:#5A5048;font-weight:300;line-height:1.65;}
-.depois-item .antes{font-size:12px;color:#3A3430;font-style:italic;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.05);}
-.depois-item .depois{font-size:12px;color:rgba(192,97,79,.7);font-style:italic;}
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 40px rgba(212,130,106,0.38);
+  }
 
-/* ── PROVA SOCIAL ── */
-.sec-proof{background:var(--bg2);padding:80px 20px;}
-.testimonials{max-width:640px;margin:48px auto;display:flex;flex-direction:column;gap:18px;}
-.tcard{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:26px 22px;}
-.tcard.feat{border-color:rgba(192,97,79,.3);box-shadow:0 4px 20px rgba(192,97,79,.08);}
-.tcard-stars{color:var(--gold);font-size:13px;letter-spacing:3px;margin-bottom:12px;}
-.tcard-text{font-size:15px;color:var(--text2);line-height:1.78;font-weight:300;margin-bottom:18px;font-family:'Lora',serif;font-style:italic;}
-.tcard-author{display:flex;align-items:center;gap:12px;}
-.tcard-av{width:36px;height:36px;border-radius:50%;background:var(--nude);display:flex;align-items:center;justify-content:center;font-family:'Lora',serif;font-size:13px;color:var(--rose2);}
-.tcard-name{font-size:14px;font-weight:500;color:var(--text);}
-.tcard-meta{font-size:12px;color:var(--text3);margin-top:2px;}
+  .cta-small-note {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-top: 16px;
+  }
 
-/* wpp */
-.wpp{max-width:360px;margin:36px auto 0;background:#DDD5CC;border-radius:16px;padding:20px 16px;}
-.wpp-hdr{text-align:center;font-size:12px;color:#6A6058;margin-bottom:14px;}
-.wpp-msg{background:#FFF;border-radius:14px 14px 14px 4px;padding:10px 14px;margin-bottom:10px;font-size:14px;color:#1A1410;line-height:1.6;max-width:90%;font-weight:300;}
-.wpp-t{font-size:10px;color:#999;text-align:right;margin-top:4px;}
+  .hero-visual {
+    margin: 60px auto 0;
+    max-width: 380px;
+    position: relative;
+  }
 
-/* ── COMO USA ── */
-.sec-uso{background:var(--bg);padding:72px 20px;border-top:1px solid var(--border);}
-.uso-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;max-width:640px;margin:44px auto 0;}
-.uso-step{text-align:center;padding:24px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;}
-.uso-num{font-family:'Lora',serif;font-size:32px;color:rgba(192,97,79,.3);font-weight:600;margin-bottom:10px;display:block;}
-.uso-step h4{font-size:14px;font-weight:500;color:var(--text);margin-bottom:7px;}
-.uso-step p{font-size:13px;color:var(--text2);font-weight:300;line-height:1.6;}
+  .audio-mockup {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 32px 28px;
+    box-shadow: 0 20px 60px rgba(42,32,24,0.10);
+    text-align: left;
+    position: relative;
+  }
 
-/* ── OFERTA ── */
-.sec-offer{background:var(--dark);padding:88px 20px;position:relative;overflow:hidden;}
-.sec-offer::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 25% 75%,rgba(192,97,79,.08) 0%,transparent 55%);pointer-events:none;}
-.sec-offer .sec-label{color:var(--rose);}
-.sec-offer h2{color:#F0E4D8;}
+  .audio-mockup-label {
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
 
-.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:660px;margin:48px auto;align-items:start;position:relative;z-index:1;}
-@media(max-width:560px){.offer-grid{grid-template-columns:1fr;}}
+  .audio-mockup-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+  }
 
-.ocard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:32px 24px;text-align:center;position:relative;}
-.ocard.prem{border:1px solid rgba(192,97,79,.4);background:rgba(192,97,79,.06);}
-.obadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--rose);color:#FFF5F0;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:40px;white-space:nowrap;}
-.oname{font-family:'Lora',serif;font-size:19px;color:#E0D4C8;margin-bottom:3px;margin-top:6px;}
-.osub{font-size:11px;color:#4A4038;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:18px;}
-.oprice{margin-bottom:22px;}
-.oprice .de{display:block;font-size:12px;color:#4A4038;text-decoration:line-through;margin-bottom:4px;}
-.oprice .pref{font-size:14px;color:#6A6058;vertical-align:top;margin-top:9px;display:inline-block;}
-.oprice .val{font-family:'Lora',serif;font-size:52px;color:#F0E4D8;line-height:1;}
-.oprice .cts{font-family:'Lora',serif;font-size:22px;color:#F0E4D8;vertical-align:top;margin-top:9px;display:inline-block;}
-.oitems{list-style:none;text-align:left;margin-bottom:22px;}
-.oitems li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#6A6058;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-weight:300;line-height:1.5;}
-.oitems li:last-child{border-bottom:none;}
-.ck{color:var(--rose);flex-shrink:0;margin-top:1px;font-size:14px;}
-.ck.gd{color:var(--gold);}
-.bon{color:#9A8E84;}
-.oguarantee{font-size:11px;color:#3A3430;margin-top:10px;line-height:1.6;}
+  .audio-mockup-sub {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 24px;
+  }
 
-.urgency{max-width:520px;margin:0 auto;text-align:center;font-size:14px;color:#4A4038;font-weight:300;line-height:1.7;padding:22px;border:1px solid rgba(192,97,79,.12);border-radius:8px;background:rgba(192,97,79,.04);position:relative;z-index:1;}
+  .waveform {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    height: 40px;
+    margin-bottom: 20px;
+  }
 
-/* ── TRUST ── */
-.sec-trust{background:var(--bg2);padding:48px 20px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.trust-row{display:flex;gap:28px;align-items:center;justify-content:center;flex-wrap:wrap;max-width:600px;margin:0 auto;}
-.tbadge{display:flex;flex-direction:column;align-items:center;gap:7px;text-align:center;}
-.tbadge-icon{width:40px;height:40px;border-radius:50%;background:var(--bg);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:18px;opacity:.75;}
-.tbadge span{font-size:11px;color:var(--text3);max-width:72px;line-height:1.4;}
+  .waveform-bar {
+    flex: 1;
+    border-radius: 3px;
+    background: var(--nude-deep);
+    animation: wave 1.2s ease-in-out infinite;
+  }
 
-/* ── FAQ ── */
-.sec-faq{background:var(--bg);padding:72px 20px;}
-.faq-list{max-width:560px;margin:44px auto 0;}
-.faq-item{border-bottom:1px solid var(--border);}
-.faq-q{width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:19px 0;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);font-weight:400;display:flex;justify-content:space-between;align-items:center;gap:16px;}
-.faq-q::after{content:'+';font-size:22px;color:var(--rose);flex-shrink:0;transition:transform .3s;font-weight:300;line-height:1;}
-.faq-item.open .faq-q::after{transform:rotate(45deg);}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
-.faq-item.open .faq-a{max-height:260px;}
-.faq-a p{padding:0 0 20px;font-size:14px;color:var(--text2);font-weight:300;line-height:1.8;}
+  @keyframes wave {
+    0%, 100% { transform: scaleY(1); }
+    50% { transform: scaleY(0.4); }
+  }
 
-/* ── CLOSE ── */
-.sec-close{background:var(--dark);padding:96px 20px;text-align:center;position:relative;overflow:hidden;}
-.sec-close::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(192,97,79,.09) 0%,transparent 65%);pointer-events:none;}
-.sec-close h2{font-size:clamp(26px,5vw,42px);color:#F0E4D8;max-width:500px;margin:0 auto 16px;position:relative;z-index:1;}
-.close-sub{font-size:17px;color:#5A5048;max-width:440px;margin:0 auto 14px;font-weight:300;line-height:1.8;position:relative;z-index:1;}
-.close-q{font-family:'Lora',serif;font-style:italic;font-size:17px;color:#7A6E64;max-width:380px;margin:0 auto 44px;line-height:1.7;position:relative;z-index:1;}
-.close-micro{margin-top:16px;font-size:13px;color:#3A3430;position:relative;z-index:1;}
+  .audio-timer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-bottom: 16px;
+  }
 
-/* FOOTER */
-footer{background:#141210;color:#3A3428;padding:36px 20px;text-align:center;}
-.flinks{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-bottom:14px;}
-.flinks a{color:#4A4038;font-size:12px;text-decoration:none;}
-footer p{font-size:12px;line-height:1.75;max-width:600px;margin:0 auto;opacity:.6;}
+  .audio-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
 
-/* STICKY */
-.sticky{position:fixed;bottom:0;left:0;right:0;background:rgba(26,20,16,.97);border-top:1px solid rgba(255,255,255,.07);padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:20px;z-index:1000;transform:translateY(100%);transition:transform .4s;flex-wrap:wrap;backdrop-filter:blur(12px);}
-.sticky.on{transform:translateY(0);}
-.sticky-txt{font-size:14px;color:#6A6058;font-weight:300;}
-.sticky-txt strong{color:#C8B8A8;font-weight:500;}
+  .play-btn {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--rose);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(212,130,106,0.35);
+  }
 
-@media(max-width:600px){
-  .hero{padding:60px 20px 72px;}
-  .depois-grid{grid-template-columns:1fr;}
-  .uso-steps{grid-template-columns:1fr;}
-}
+  .play-btn svg { fill: white; width: 20px; height: 20px; margin-left: 3px; }
+
+  .stars {
+    display: flex;
+    gap: 3px;
+    margin-bottom: 8px;
+  }
+
+  .star { color: var(--gold); font-size: 16px; }
+
+  /* ─── SECTIONS ─── */
+  section {
+    padding: 80px 24px;
+  }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .container-wide {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+  }
+
+  .section-body {
+    font-size: 17px;
+    color: var(--text-mid);
+    line-height: 1.8;
+  }
+
+  /* ─── PAIN SECTION ─── */
+  .pain-section {
+    background: var(--cream);
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .pain-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 24px 20px;
+    border: 1px solid rgba(212,130,106,0.12);
+  }
+
+  .pain-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .pain-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .pain-card p {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  .pain-quote {
+    margin-top: 48px;
+    background: var(--lavender);
+    border-radius: 20px;
+    padding: 36px 32px;
+    border-left: 3px solid var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-style: italic;
+    color: var(--text-mid);
+    line-height: 1.55;
+  }
+
+  /* ─── MECHANISM ─── */
+  .mechanism-section {
+    background: var(--off-white);
+  }
+
+  .mechanism-visual {
+    margin: 48px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--nude-deep);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .mechanism-step {
+    background: var(--white);
+    padding: 28px 22px;
+    text-align: center;
+  }
+
+  .mechanism-step-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: var(--nude-deep);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+
+  .mechanism-step h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .mechanism-step p {
+    font-size: 13px;
+    color: var(--text-soft);
+    line-height: 1.55;
+  }
+
+  .science-block {
+    background: var(--beige);
+    border-radius: 18px;
+    padding: 28px 30px;
+    margin-top: 36px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .science-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .science-block p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .science-block strong {
+    color: var(--text-dark);
+    font-weight: 500;
+  }
+
+  /* ─── PRODUCT INTRO ─── */
+  .product-section {
+    background: linear-gradient(160deg, var(--lavender) 0%, var(--nude) 100%);
+  }
+
+  .product-badge {
+    display: inline-block;
+    background: var(--white);
+    border: 1px solid var(--gold-light);
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 50px;
+    margin-bottom: 24px;
+  }
+
+  .product-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 640px) {
+    .product-split { grid-template-columns: 1fr; }
+  }
+
+  .product-card {
+    background: var(--white);
+    border-radius: 28px;
+    padding: 40px 32px;
+    box-shadow: 0 24px 64px rgba(42,32,24,0.09);
+  }
+
+  .product-card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .product-card-tagline {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 28px;
+  }
+
+  .product-spec {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--nude);
+  }
+
+  .product-spec:last-child { border-bottom: none; }
+
+  .spec-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .spec-text {
+    font-size: 15px;
+    color: var(--text-mid);
+  }
+
+  .product-desc h3 {
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .product-desc p {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  /* ─── BENEFITS ─── */
+  .benefits-section {
+    background: var(--white);
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .benefit-card {
+    border: 1px solid var(--nude-deep);
+    border-radius: 18px;
+    padding: 26px 22px;
+    transition: transform 0.2s;
+  }
+
+  .benefit-card:hover { transform: translateY(-3px); }
+
+  .benefit-icon {
+    font-size: 30px;
+    margin-bottom: 14px;
+  }
+
+  .benefit-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .benefit-card p {
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.6;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials-section {
+    background: var(--cream);
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 48px;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 28px 24px;
+    border: 1px solid var(--nude-deep);
+  }
+
+  .testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .testimonial-avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+    border: 2px solid var(--nude-deep);
+  }
+
+  .testimonial-name {
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--text-dark);
+  }
+
+  .testimonial-meta {
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-top: 2px;
+  }
+
+  .testimonial-body {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  .testimonial-tag {
+    display: inline-block;
+    background: var(--beige);
+    color: var(--text-soft);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 50px;
+    margin-top: 16px;
+  }
+
+  .whatsapp-block {
+    margin-top: 36px;
+    background: #E8F5E9;
+    border-radius: 16px;
+    padding: 24px;
+  }
+
+  .whatsapp-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    font-size: 13px;
+    color: #2E7D32;
+    font-weight: 500;
+  }
+
+  .whatsapp-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .wa-msg {
+    background: var(--white);
+    border-radius: 0 14px 14px 14px;
+    padding: 12px 16px;
+    max-width: 85%;
+    font-size: 14px;
+    color: var(--text-mid);
+    position: relative;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  }
+
+  .wa-msg .wa-time {
+    font-size: 10px;
+    color: #90A4AE;
+    margin-top: 5px;
+    text-align: right;
+  }
+
+  /* ─── OFFER ─── */
+  .offer-section {
+    background: var(--off-white);
+  }
+
+  .offer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 600px) {
+    .offer-grid { grid-template-columns: 1fr; }
+  }
+
+  .offer-card {
+    border-radius: 24px;
+    padding: 36px 28px;
+    border: 1.5px solid var(--nude-deep);
+    background: var(--white);
+    position: relative;
+  }
+
+  .offer-card.featured {
+    border-color: var(--gold);
+    box-shadow: 0 16px 48px rgba(191,160,112,0.18);
+  }
+
+  .offer-popular-badge {
+    position: absolute;
+    top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 18px;
+    border-radius: 50px;
+    white-space: nowrap;
+  }
+
+  .offer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .offer-desc {
+    font-size: 13px;
+    color: var(--text-soft);
+    margin-bottom: 24px;
+  }
+
+  .offer-price {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 28px;
+  }
+
+  .offer-currency {
+    font-size: 16px;
+    color: var(--text-mid);
+    font-weight: 400;
+  }
+
+  .offer-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1;
+  }
+
+  .offer-amount-dec {
+    font-size: 22px;
+    color: var(--text-mid);
+  }
+
+  .offer-note {
+    font-size: 12px;
+    color: var(--text-soft);
+    margin-top: 4px;
+    margin-bottom: 24px;
+  }
+
+  .offer-items {
+    list-style: none;
+    margin-bottom: 32px;
+  }
+
+  .offer-items li {
+    font-size: 14px;
+    color: var(--text-mid);
+    padding: 9px 0;
+    border-bottom: 1px solid var(--beige);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .offer-items li:last-child { border-bottom: none; }
+
+  .check-icon {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--rose-light);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .check-icon::after {
+    content: '✓';
+    font-size: 10px;
+    color: var(--rose);
+    font-weight: 700;
+  }
+
+  .offer-cta {
+    width: 100%;
+    background: var(--text-dark);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 16px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .offer-cta:hover { opacity: 0.85; }
+
+  .offer-cta.featured-cta {
+    background: var(--rose);
+    box-shadow: 0 8px 28px rgba(212,130,106,0.30);
+  }
+
+  .offer-value-note {
+    font-size: 12px;
+    color: var(--gold);
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+  }
+
+  /* ─── TRUST ─── */
+  .trust-section {
+    background: var(--beige);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-top: 40px;
+  }
+
+  .trust-item {
+    text-align: center;
+    padding: 24px 16px;
+    background: var(--white);
+    border-radius: 16px;
+  }
+
+  .trust-icon { font-size: 28px; margin-bottom: 10px; }
+
+  .trust-item h5 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+  }
+
+  .trust-item p {
+    font-size: 12px;
+    color: var(--text-soft);
+  }
+
+  .guarantee-block {
+    margin-top: 40px;
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px 32px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    border: 1px solid var(--gold-light);
+  }
+
+  @media (max-width: 580px) {
+    .guarantee-block { flex-direction: column; text-align: center; }
+  }
+
+  .guarantee-seal {
+    font-size: 56px;
+    flex-shrink: 0;
+  }
+
+  .guarantee-block h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+  }
+
+  .guarantee-block p {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* ─── FAQ ─── */
+  .faq-section {
+    background: var(--off-white);
+  }
+
+  .faq-list {
+    margin-top: 48px;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--nude-deep);
+    padding: 0;
+  }
+
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 22px 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .faq-arrow {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    border: 1px solid var(--nude-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+    color: var(--text-soft);
+    transition: transform 0.25s;
+  }
+
+  .faq-item.open .faq-arrow { transform: rotate(180deg); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 300px;
+  }
+
+  .faq-answer p {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.75;
+    padding-bottom: 22px;
+  }
+
+  /* ─── CLOSE SECTION ─── */
+  .close-section {
+    background: linear-gradient(160deg, var(--nude) 0%, var(--lavender) 100%);
+    text-align: center;
+    padding: 100px 24px;
+  }
+
+  .close-section h2 {
+    font-size: clamp(30px, 4.5vw, 52px);
+    font-weight: 600;
+    color: var(--text-dark);
+    max-width: 680px;
+    margin: 0 auto 24px;
+    line-height: 1.2;
+  }
+
+  .close-section h2 em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .close-section p {
+    font-size: 18px;
+    color: var(--text-mid);
+    max-width: 520px;
+    margin: 0 auto 48px;
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  /* ─── STICKY CTA ─── */
+  .sticky-cta {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: var(--white);
+    padding: 14px 20px;
+    box-shadow: 0 -4px 20px rgba(42,32,24,0.10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 14px;
+    z-index: 100;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+
+  .sticky-cta.visible { transform: translateY(0); }
+
+  .sticky-cta-text {
+    font-size: 14px;
+    color: var(--text-mid);
+  }
+
+  .sticky-cta-text strong { color: var(--text-dark); font-weight: 500; }
+
+  .sticky-btn {
+    background: var(--rose);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 32px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(212,130,106,0.28);
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--text-dark);
+    color: rgba(245,230,216,0.55);
+    text-align: center;
+    padding: 40px 24px;
+    font-size: 13px;
+    line-height: 2;
+  }
+
+  .footer a {
+    color: rgba(245,230,216,0.55);
+    text-decoration: underline;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    height: 1px;
+    background: var(--nude-deep);
+    max-width: 100px;
+    margin: 0 auto 24px;
+    border: none;
+  }
+
+  /* ─── MISC ─── */
+  .text-center { text-align: center; }
+  .text-rose { color: var(--rose); }
+
+  @media (max-width: 500px) {
+    section { padding: 60px 20px; }
+    .hero { padding: 60px 20px 80px; }
+    .offer-grid { gap: 40px; }
+    .offer-card { margin-top: 14px; }
+  }
 </style>
 </head>
 <body>
 
-<div class="topbar">Acesso digital imediato — <strong>Garantia de 7 dias sem risco</strong></div>
-
-<nav class="nav">
-  <span class="logo">FemSync</span>
-  <span class="logo-sub">Protocolo Noturno</span>
-</nav>
-
-<!-- ══════════ HERO ══════════ -->
-<section class="hero">
-  <div class="c">
-    <div class="hero-label">Para mulheres que se perdem à noite</div>
-
-    <h1>
-      Você não tem fome.<br>
-      Você tem <em>compulsão emocional</em>.<br>
-      E existe uma diferença.
-    </h1>
-
-    <p class="hero-tension">
-      Toda noite o mesmo ciclo. Você resiste, cede, sente culpa, promete recomeçar. Não é fraqueza — é um estado mental que ninguém te ensinou a interromper.
-    </p>
-
-    <div class="hero-wave">
-      <svg width="260" height="48" viewBox="0 0 260 48" fill="none">
-        <path d="M0 24 Q15 8 30 24 Q45 40 60 24 Q75 8 90 24 Q105 40 120 24 Q135 8 150 24 Q165 40 180 24 Q195 8 210 24 Q225 40 260 24" stroke="rgba(192,97,79,.55)" stroke-width="2" stroke-linecap="round" fill="none"/>
-        <path d="M0 28 Q12 18 24 28 Q36 38 48 28 Q60 18 72 28 Q84 38 96 28 Q108 18 120 28 Q132 38 144 28 Q156 18 168 28 Q180 38 220 28 Q240 20 260 28" stroke="rgba(184,150,62,.28)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
-      </svg>
-    </div>
-
-    <a href="#oferta" class="btn btn-primary">Quero Interromper Esse Ciclo Hoje</a>
-    <div class="hero-micro">R$9,90 · Protocolo em áudio · 12 minutos · Acesso imediato</div>
-  </div>
-</section>
-
-<!-- ══════════ RECOGNITION BAND ══════════ -->
-<div class="rband">
-  <p>"Eu sabia exatamente o que estava fazendo. <strong>E não conseguia parar.</strong> Não era falta de força de vontade. Era algo que rodava sozinho."</p>
+<!-- TOPBAR -->
+<div class="topbar">
+  ✦ Acesso digital imediato · 7 dias de garantia · Produto seguro e privado ✦
 </div>
 
-<!-- ══════════ DOR — ESCALADA VISCERAL ══════════ -->
-<section class="sec-dor">
-  <div class="c tc">
-    <span class="sec-label">você se reconhece aqui?</span>
-    <h2 style="font-size:clamp(24px,4vw,34px);max-width:500px;margin:0 auto 12px;">
-      O ciclo que você tenta esconder
-    </h2>
-    <p style="font-size:16px;color:var(--text2);max-width:480px;margin:0 auto 36px;font-weight:300;line-height:1.8;">
-      Não é sobre comida. Nunca foi. É sobre o que acontece quando um dia inteiro de pressão, decisão e emoção represada não tem onde ir.
-    </p>
-
-    <div class="dor-list">
-      <div class="dor-item">
-        <span class="dor-check">•</span>
-        <p class="dor-text">Chega à noite exausta — e em vez de descansar, <strong>abre o armário sem nem perceber que foi</strong></p>
-      </div>
-      <div class="dor-item">
-        <span class="dor-check">•</span>
-        <p class="dor-text">Come rápido, escondida, sem curtir — <strong>só para parar aquela urgência interna</strong> que não tem nome</p>
-      </div>
-      <div class="dor-item">
-        <span class="dor-check">•</span>
-        <p class="dor-text">No dia seguinte acorda com culpa antes mesmo de abrir os olhos. <strong>O rosto inchado no espelho confirma.</strong></p>
-      </div>
-      <div class="dor-item">
-        <span class="dor-check">•</span>
-        <p class="dor-text">Já prometeu "segunda começo" dezenas de vezes. <strong>Às vezes até começa. Mas a noite chega e o ciclo volta.</strong></p>
-      </div>
-      <div class="dor-item">
-        <span class="dor-check">•</span>
-        <p class="dor-text">Evita espelho, evita foto, evita roupa que antes ficava bem. <strong>Virou automático não se olhar.</strong></p>
-      </div>
-      <div class="dor-item">
-        <span class="dor-check">•</span>
-        <p class="dor-text">Ninguém sabe a extensão disso. <strong>A culpa mais pesada não é a comida — é o silêncio em volta disso.</strong></p>
-      </div>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-eyebrow">Ritual Feminino de Bem-Estar</span>
+    <h1>Mulheres estão redescobrindo como <em>sentir leveza</em> sem abrir mão de quem são</h1>
+    <p class="hero-sub">Um áudio de 12 minutos por noite. Sem dieta radical. Sem academia. Sem luta contra o próprio corpo.</p>
+    <div class="hero-bullets">
+      <span class="hero-bullet">Sem privação alimentar</span>
+      <span class="hero-bullet">100% digital</span>
+      <span class="hero-bullet">Funciona enquanto você descansa</span>
+      <span class="hero-bullet">Criado para mulheres 25–55 anos</span>
     </div>
+    <a href="#oferta" class="cta-btn">Quero Começar Esta Noite</a>
+    <p class="cta-small-note">Acesso imediato após confirmação · A partir de R$9,90</p>
 
-    <!-- ESCALADA -->
-    <div class="tension-block" style="margin-top:40px;">
-      <p>E o pior: você tentou força de vontade. Funcionou por uns dias. Depois voltou com mais força.</p>
-      <p>Tentou dieta. Funcionou nas primeiras semanas. Mas a noite sempre ganha no final.</p>
-      <p><strong>O problema não é sua falta de compromisso. É que ninguém te mostrou como desligar o estado mental que gera isso.</strong></p>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ TURNING POINT ══════════ -->
-<section class="sec-turn">
-  <div class="c tc">
-    <span class="sec-label">o que está por baixo disso</span>
-    <h2 class="turn-h">
-      Compulsão noturna não é fome.<br>É o cérebro buscando alívio.
-    </h2>
-    <p class="turn-sub">
-      Quando o dia foi pesado demais e não houve descarga emocional real, o sistema nervoso feminino entra em estado de vigilância. À noite, exausto, ele busca a rota mais rápida para alívio — e encontra comida. Não é gula. É um mecanismo de sobrevivência mal direcionado.
-    </p>
-
-    <div class="turn-steps">
-      <div class="turn-step">
-        <div class="turn-num">01</div>
-        <div class="turn-body">
-          <h4>O estado de alerta não desliga com esforço consciente</h4>
-          <p>Você pode decidir "não vou comer". Mas o sistema que gerou a urgência ainda está ativo. Ele não responde a decisões — responde a <strong>sinais de segurança que o corpo precisa sentir</strong>.</p>
+    <div class="hero-visual">
+      <div class="audio-mockup">
+        <p class="audio-mockup-label">CorpoLeve Audio ™</p>
+        <p class="audio-mockup-title">Ritual Noturno</p>
+        <p class="audio-mockup-sub">12 minutos · Frequências suaves</p>
+        <div class="waveform" id="waveform"></div>
+        <div class="audio-timer"><span>02:48</span><span>12:00</span></div>
+        <div class="audio-controls">
+          <span style="font-size:22px;color:var(--text-soft);cursor:pointer">⟨⟨</span>
+          <div class="play-btn">
+            <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
+          </div>
+          <span style="font-size:22px;color:var(--text-soft);cursor:pointer">⟩⟩</span>
         </div>
-      </div>
-      <div class="turn-step">
-        <div class="turn-num">02</div>
-        <div class="turn-body">
-          <h4>Frequências sonoras específicas comunicam segurança ao sistema nervoso</h4>
-          <p>É o mesmo princípio de como música lenta te faz relaxar naturalmente — mas <strong>em camadas calibradas para guiar o estado mental de vigilância para desaceleração real</strong>. Não é hipnose. É estimulação auditiva direcionada.</p>
+        <div style="margin-top:24px">
+          <div class="stars">
+            <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+          </div>
+          <p style="font-size:12px;color:var(--text-soft)">"Depois da primeira semana já sentia diferença no sono e na compulsão." — Camila, 38 anos</p>
         </div>
-      </div>
-      <div class="turn-step">
-        <div class="turn-num">03</div>
-        <div class="turn-body">
-          <h4>Quando o estado muda, a urgência some sem esforço</h4>
-          <p>Usuárias não relatam "resistir mais". Relatam <strong>não sentir mais aquela urgência</strong>. A diferença é total — porque o mecanismo foi interrompido antes de ativar, não suprimido depois.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="turn-cta-wrap">
-      <a href="#oferta" class="btn btn-primary">Quero Desligar Minha Compulsão Noturna</a>
-      <p class="turn-cta-note">12 minutos. Toda noite. Antes de dormir.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ DEPOIS — TANGIBILIZAÇÃO ══════════ -->
-<section class="sec-depois">
-  <div class="c tc" style="position:relative;z-index:1;">
-    <span class="sec-label">o que começa a mudar</span>
-    <h2>Com o ciclo interrompido,<br>o corpo responde diferente</h2>
-
-    <div class="depois-grid">
-      <div class="depois-item">
-        <span class="depois-icon">🌙</span>
-        <h4>As noites param de ser guerra</h4>
-        <p>A urgência noturna diminui gradualmente. Você percebe que passou a noite sem atacar a cozinha — <em>não por esforço</em>, por ausência de urgência.</p>
-        <div class="antes">Antes: atacava o armário no piloto automático</div>
-        <div class="depois">Depois: a vontade simplesmente não apareceu</div>
-      </div>
-      <div class="depois-item">
-        <span class="depois-icon">😴</span>
-        <h4>O sono muda de textura</h4>
-        <p>Quando o sistema nervoso finalmente desacelera, o sono se aprofunda. Você acorda diferente — menos pesada, menos inchada, menos no modo sobrevivência.</p>
-        <div class="antes">Antes: acorda já cansada, rosto inchado</div>
-        <div class="depois">Depois: acorda com leveza que não sentia faz tempo</div>
-      </div>
-      <div class="depois-item">
-        <span class="depois-icon">👗</span>
-        <h4>O corpo começa a responder</h4>
-        <p>Sem os ciclos de compulsão e culpa, sem o inchaço crônico de sono interrompido, o corpo encontra um equilíbrio que dieta nunca conseguiu dar.</p>
-        <div class="antes">Antes: calça guardada no fundo do armário</div>
-        <div class="depois">Depois: fechou. Sem dieta. Sem academia.</div>
-      </div>
-      <div class="depois-item">
-        <span class="depois-icon">💗</span>
-        <h4>A relação com comida se reorganiza</h4>
-        <p>Sem a urgência emocional, a comida perde o papel de alívio. Você percebe que começa a comer com presença — não no piloto automático da compulsão.</p>
-        <div class="antes">Antes: comer escondida, rápido, com culpa</div>
-        <div class="depois">Depois: escolhe sem urgência, para quando quer</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ PROVA SOCIAL ══════════ -->
-<section class="sec-proof">
-  <div class="c tc">
-    <span class="sec-label">quem já usou</span>
-    <h2 style="font-size:clamp(22px,3.5vw,32px);max-width:440px;margin:0 auto;">O que elas contam.</h2>
+<!-- PAIN SECTION -->
+<section class="pain-section">
+  <div class="container">
+    <span class="section-eyebrow">Você se reconhece aqui?</span>
+    <h2 class="section-title">Quando o corpo parece<br>estar contra você</h2>
+    <p class="section-body">Não é fraqueza. Não é falta de disciplina. Existe algo muito mais profundo acontecendo — e a maioria das mulheres nunca recebe essa explicação.</p>
 
-    <div class="testimonials">
-      <div class="tcard feat">
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-text">
-          "Eu tava no quarto ataque de cozinha do dia quando comprei isso. Às 23h, tava chorando. Achei que era mais uma coisa que ia me decepionar. Três semanas depois fui três dias sem atacar nada de madrugada. Não foi que eu resisti — simplesmente não senti aquela urgência. É diferente. É muito diferente. A calça jeans que eu não usava desde 2022 fechou no segundo mês."
-        </p>
-        <div class="tcard-author">
-          <div class="tcard-av">AM</div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">👗</div>
+        <h4>As roupas que não fecham mais</h4>
+        <p>Aquela saudade de se sentir confortável no próprio corpo, sem esconder nada.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🍫</div>
+        <h4>A compulsão noturna</h4>
+        <p>Resistir o dia inteiro e desfazer tudo à noite, sentindo culpa que não passa.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">😔</div>
+        <h4>Inchaço que não some</h4>
+        <p>Acordar inchada sem explicação, mesmo comendo "certo".</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🔄</div>
+        <h4>O ciclo das dietas</h4>
+        <p>Perder, recuperar, recomeçar. Cada vez mais cansada de tentar.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">😴</div>
+        <h4>O cansaço que não vai</h4>
+        <p>Dormir e acordar exausta. Energia zero para o que importa.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📉</div>
+        <h4>A autoestima abalada</h4>
+        <p>Evitar espelhos, fotos, eventos. Uma versão menor de si mesma.</p>
+      </div>
+    </div>
+
+    <div class="pain-quote">
+      "Eu seguia tudo certo — dieta, academia, suplemento. Mas meu corpo simplesmente não respondia. Parecia que tinha um bloqueio que eu não conseguia enxergar."
+      <br><br>
+      <span style="font-size:15px;font-style:normal;color:var(--text-soft)">— Juliana, 42 anos, São Paulo</span>
+    </div>
+  </div>
+</section>
+
+<!-- MECHANISM SECTION -->
+<section class="mechanism-section">
+  <div class="container">
+    <span class="section-eyebrow">A raiz do problema</span>
+    <h2 class="section-title">Não é o que você come.<br>É o que o estresse faz com o seu corpo.</h2>
+    <p class="section-body">Pesquisas recentes sobre neuroendocrinologia feminina apontam para um ciclo que afeta diretamente o metabolismo, a compulsão alimentar e o acúmulo de gordura abdominal — especialmente em mulheres acima dos 25 anos.</p>
+
+    <div class="mechanism-visual">
+      <div class="mechanism-step">
+        <div class="mechanism-step-num">01</div>
+        <h4>Estresse crônico</h4>
+        <p>Rotina exaustiva, cobranças, multitarefas constantes ativam o sistema de defesa do corpo.</p>
+      </div>
+      <div class="mechanism-step">
+        <div class="mechanism-step-num">02</div>
+        <h4>Cortisol elevado</h4>
+        <p>O hormônio do estresse em excesso sinaliza para o corpo reter gordura como "reserva de emergência".</p>
+      </div>
+      <div class="mechanism-step">
+        <div class="mechanism-step-num">03</div>
+        <h4>Metabolismo em defesa</h4>
+        <p>O organismo prioriza sobrevivência — não emagrecimento. Dietas funcionam menos ou não funcionam.</p>
+      </div>
+      <div class="mechanism-step">
+        <div class="mechanism-step-num">04</div>
+        <h4>Compulsão aumenta</h4>
+        <p>O cérebro sobrecarregado busca dopamina rápida — açúcar, carboidrato, comida reconfortante.</p>
+      </div>
+    </div>
+
+    <div class="science-block">
+      <div class="science-icon">🔬</div>
+      <p>Estudos sobre neurociência do comportamento alimentar sugerem que o <strong>estado do sistema nervoso autônomo</strong> influencia diretamente a forma como o corpo armazena gordura, regula o apetite e responde a hormônios relacionados ao metabolismo feminino. Quando o sistema nervoso está em modo de alerta, <strong>o processo natural de regulação de peso fica comprometido</strong>, independentemente da dieta seguida.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT SECTION -->
+<section class="product-section">
+  <div class="container-wide">
+    <div class="container" style="margin-bottom:0">
+      <div class="product-badge">Apresentando</div>
+      <h2 class="section-title" style="text-align:center;max-width:600px;margin:0 auto 8px">CorpoLeve Audio™</h2>
+      <p style="text-align:center;font-size:17px;color:var(--text-soft);margin-bottom:0">O ritual de 12 minutos projetado para o sistema nervoso feminino</p>
+    </div>
+
+    <div class="product-split" style="margin-top:48px;padding:0 16px">
+      <div class="product-card">
+        <p class="product-card-name">CorpoLeve</p>
+        <p class="product-card-tagline">Ritual Sonoro Feminino · Versão 2.0</p>
+        <div class="product-spec">
+          <div class="spec-dot"></div>
+          <span class="spec-text">Áudio de 12 minutos com frequências neurossensoriais</span>
+        </div>
+        <div class="product-spec">
+          <div class="spec-dot"></div>
+          <span class="spec-text">Desenvolvido para o padrão de estresse feminino</span>
+        </div>
+        <div class="product-spec">
+          <div class="spec-dot"></div>
+          <span class="spec-text">Ideal para usar antes de dormir ou ao acordar</span>
+        </div>
+        <div class="product-spec">
+          <div class="spec-dot"></div>
+          <span class="spec-text">Funciona com fone de ouvido comum ou caixa de som</span>
+        </div>
+        <div class="product-spec">
+          <div class="spec-dot"></div>
+          <span class="spec-text">Acesso pelo celular, tablet ou computador</span>
+        </div>
+        <div class="product-spec">
+          <div class="spec-dot"></div>
+          <span class="spec-text">Sem obrigações, rotinas complexas ou dietas</span>
+        </div>
+      </div>
+
+      <div class="product-desc">
+        <h3>O que acontece nos seus 12 minutos</h3>
+        <p>O áudio do CorpoLeve usa composições sonoras especialmente estruturadas para conduzir o sistema nervoso de um estado de alerta para um estado de regulação profunda — o ambiente interno onde o metabolismo funciona melhor.</p>
+        <p>Não é meditação guiada. Não é hipnose. É uma experiência sonora que trabalha com a neurobiologia natural do seu corpo, de forma suave e completamente passiva.</p>
+        <p>Você simplesmente ouve. O áudio faz o trabalho.</p>
+        <a href="#oferta" class="cta-btn" style="margin-top:12px;display:inline-block">Acessar o CorpoLeve</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section class="benefits-section">
+  <div class="container">
+    <span class="section-eyebrow">O que você pode esperar</span>
+    <h2 class="section-title" style="text-align:center">Benefícios que vão além<br>da balança</h2>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🌙</div>
+        <h4>Sono mais profundo</h4>
+        <p>Adormecer com mais facilidade e acordar se sentindo descansada de verdade.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🍽️</div>
+        <h4>Menos compulsão</h4>
+        <p>Redução do impulso por doces e carboidratos no final do dia — sem esforço consciente.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">⚡</div>
+        <h4>Mais energia</h4>
+        <p>Sistema nervoso regulado = corpo que funciona com mais eficiência e disposição.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🌸</div>
+        <h4>Equilíbrio emocional</h4>
+        <p>Menor reatividade, mais clareza emocional — especialmente em dias difíceis.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🔥</div>
+        <h4>Metabolismo apoiado</h4>
+        <p>Ambiente hormonal mais favorável para o corpo funcionar de forma natural e saudável.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">💆‍♀️</div>
+        <h4>Relaxamento real</h4>
+        <p>Sair do modo de alerta constante e finalmente dar ao corpo a pausa que ele precisa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="container-wide">
+    <div class="container" style="margin-bottom:0">
+      <span class="section-eyebrow" style="display:block;text-align:center">Experiências reais</span>
+      <h2 class="section-title" style="text-align:center">O que mulheres como você<br>estão sentindo</h2>
+    </div>
+
+    <div class="testimonials-grid" style="margin-top:48px">
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img class="testimonial-avatar" src="https://opresenterural.com.br/wp-content/uploads/2019/03/Biogenesis-mulher.jpg" alt="Camila Rezende">
           <div>
-            <div class="tcard-name">Ana M., 39 anos</div>
-            <div class="tcard-meta">São Paulo · cliente há 7 semanas</div>
+            <div class="testimonial-name">Camila Rezende</div>
+            <div class="testimonial-meta">34 anos · Belo Horizonte, MG</div>
           </div>
         </div>
+        <div class="stars" style="margin-bottom:12px">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-body">Parecia que meu corpo estava travado. Fiz tudo certo por meses e não via resultado. Depois de 3 semanas usando o áudio à noite, a vontade de atacar o armário de doces depois do jantar simplesmente diminuiu. Não sei explicar como, mas algo mudou.</p>
+        <span class="testimonial-tag">✓ Compra verificada · 18 dias de uso</span>
       </div>
 
-      <div class="tcard">
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-text">
-          "Minha coisa era ansiedade mesmo. Qualquer emoção virava comida. Não tô curada mas mudou muito. Consigo pausar antes de abrir o armário. Antes era automático. Durmo melhor também, isso eu percebi logo na primeira semana."
-        </p>
-        <div class="tcard-author">
-          <div class="tcard-av">RP</div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img class="testimonial-avatar" src="https://i.pinimg.com/236x/0d/cc/69/0dcc696a045afd882b0b68c6d84b047d.jpg" alt="Mariana Costa">
           <div>
-            <div class="tcard-name">Renata P., 33 anos</div>
-            <div class="tcard-meta">Porto Alegre · cliente há 5 semanas</div>
+            <div class="testimonial-name">Mariana Costa</div>
+            <div class="testimonial-meta">41 anos · Curitiba, PR</div>
           </div>
         </div>
+        <div class="stars" style="margin-bottom:12px">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-body">Minha calça jeans que estava guardada há 8 meses fechou semana passada. Não mudei a dieta. Não voltei para a academia. Só comecei a usar isso religiosamente antes de dormir. O sono melhorou muito primeiro, daí o resto foi vindo.</p>
+        <span class="testimonial-tag">✓ Compra verificada · 41 dias de uso</span>
       </div>
 
-      <div class="tcard">
-        <div class="tcard-stars">★★★★★</div>
-        <p class="tcard-text">
-          "Dois meses. Calça que tava guardada fechou. Não fiz dieta. Durmo de verdade agora, acordar sem o rosto inchado que era todo dia. A barriga claramente diminuiu. Honestamente não esperava resultado físico, mas aconteceu."
-        </p>
-        <div class="tcard-author">
-          <div class="tcard-av">CF</div>
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img class="testimonial-avatar" src="https://i.pinimg.com/736x/68/a9/68/68a968808f8951a151f98e4722bf10e7.jpg" alt="Patrícia Alves">
           <div>
-            <div class="tcard-name">Carla F., 44 anos</div>
-            <div class="tcard-meta">Belo Horizonte · cliente há 9 semanas</div>
+            <div class="testimonial-name">Patrícia Alves</div>
+            <div class="testimonial-meta">29 anos · Recife, PE</div>
           </div>
         </div>
+        <div class="stars" style="margin-bottom:12px">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-body">Honestamente? Comprei sem muita expectativa. Pensei que não ia funcionar pra mim. Mas o inchaço que me incomodava há anos realmente diminuiu, e eu me sinto menos ansiosa de um modo geral. Já indiquei pra duas amigas.</p>
+        <span class="testimonial-tag">✓ Compra verificada · 27 dias de uso</span>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-header">
+          <img class="testimonial-avatar" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxm74F8IRA7VDmB8GpK_ty6MmkyrZMpx4xNQ&s" alt="Luciana Ferreira">
+          <div>
+            <div class="testimonial-name">Luciana Ferreira</div>
+            <div class="testimonial-meta">47 anos · Porto Alegre, RS</div>
+          </div>
+        </div>
+        <div class="stars" style="margin-bottom:12px">
+          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+        </div>
+        <p class="testimonial-body">Na menopausa tudo ficou mais difícil. Eu já não confiava em mais nada. Mas esse áudio é diferente — ele não promete milagre, e talvez seja exatamente isso que me convenceu a tentar. Hoje me sinto mais leve emocionalmente, o que já mudou minha relação com a comida.</p>
+        <span class="testimonial-tag">✓ Compra verificada · 53 dias de uso</span>
       </div>
     </div>
 
-    <!-- WhatsApp cru e imperfeito -->
-    <div class="wpp">
-      <div class="wpp-hdr">💬 Mensagens recebidas</div>
-      <div class="wpp-msg">
-        gente 3 dias sem comer de madrugada. isso nunca tinha acontecido na minha vida juro rsrs
-        <div class="wpp-t">ontem · 22:47</div>
+    <!-- WhatsApp block -->
+    <div class="whatsapp-block" style="max-width:460px;margin:40px auto 0">
+      <div class="whatsapp-header">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#2E7D32"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.089.534 4.055 1.475 5.769L0 24l6.385-1.664C8.028 23.25 9.983 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.848 0-3.576-.497-5.065-1.362l-.361-.214-3.791.988 1.006-3.684-.232-.37C2.556 15.65 2 13.888 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Mensagens recebidas
       </div>
-      <div class="wpp-msg">
-        acordei sem inchaço no rosto pelo 5o dia seguido. faz QUANTO TEMPO que isso não acontecia
-        <div class="wpp-t">há 2 dias · 07:14</div>
-      </div>
-      <div class="wpp-msg">
-        não sei explicar mas a urgência some. é tipo... o armário tá lá mas eu não fui
-        <div class="wpp-t">há 4 dias · 23:02</div>
+      <div class="whatsapp-messages">
+        <div class="wa-msg">
+          "Gente, acordei 3 dias seguidos sem vontade de comer pão com manteiga assim que abro os olhos. Pra mim isso é MUITO"
+          <div class="wa-time">Ontem, 07:14 ✓✓</div>
+        </div>
+        <div class="wa-msg" style="align-self:flex-start">
+          "comecei na semana passada só pra testar. já percebi diferença na barriga, nem sei se é inchaço mas ficou menor 😭"
+          <div class="wa-time">Hoje, 09:31 ✓✓</div>
+        </div>
+        <div class="wa-msg">
+          "não aguento mais fazer dieta. esse aqui não me pede pra fazer dieta, então fica 😂😂 e tá funcionando"
+          <div class="wa-time">Hoje, 11:02 ✓✓</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════ COMO USAR ══════════ -->
-<section class="sec-uso">
-  <div class="c tc">
-    <span class="sec-label">como funciona na prática</span>
-    <h2 style="font-size:clamp(22px,3.5vw,30px);max-width:440px;margin:0 auto;">Simples. Direto. Sem burocracia.</h2>
-
-    <div class="uso-steps">
-      <div class="uso-step">
-        <span class="uso-num">1</span>
-        <h4>Deite-se</h4>
-        <p>Na cama, antes de dormir. Com ou sem fone. Celular do lado ou fone de ouvido — o que for mais confortável.</p>
-      </div>
-      <div class="uso-step">
-        <span class="uso-num">2</span>
-        <h4>Aperte play</h4>
-        <p>12 minutos. Você não precisa prestar atenção, fazer nada, nem ficar acordada até o fim. A maioria adormece no meio.</p>
-      </div>
-      <div class="uso-step">
-        <span class="uso-num">3</span>
-        <h4>Repita toda noite</h4>
-        <p>Efeito é cumulativo. A maioria percebe diferença na primeira semana. Mudanças mais profundas aparecem com consistência.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ OFERTA ══════════ -->
-<section class="sec-offer" id="oferta">
-  <div class="c tc" style="position:relative;z-index:1;">
-    <span class="sec-label">escolha seu protocolo</span>
-    <h2 style="font-size:clamp(24px,4vw,36px);max-width:420px;margin:0 auto 12px;">Comece esta noite.</h2>
-    <p style="font-size:15px;color:#5A5048;max-width:380px;margin:0 auto;font-weight:300;line-height:1.8;">Você vai usar ainda hoje. Em menos de 3 minutos está pronta.</p>
+<!-- OFFER -->
+<section class="offer-section" id="oferta">
+  <div class="container">
+    <span class="section-eyebrow" style="text-align:center;display:block">Acesso imediato</span>
+    <h2 class="section-title" style="text-align:center">Escolha como<br>quer começar</h2>
+    <p style="text-align:center;color:var(--text-soft);font-size:15px;max-width:440px;margin:0 auto">Sem assinatura. Sem mensalidade. Você paga uma vez e acessa para sempre.</p>
 
     <div class="offer-grid">
-      <div class="ocard">
-        <div class="oname">Essencial</div>
-        <div class="osub">Protocolo Noturno</div>
-        <div class="oprice">
-          <span class="pref">R$</span><span class="val">9</span><span class="cts">,90</span>
+      <!-- BASIC -->
+      <div class="offer-card">
+        <p class="offer-name">Essencial</p>
+        <p class="offer-desc">Para começar o ritual e sentir a diferença</p>
+        <div class="offer-price">
+          <span class="offer-currency">R$</span>
+          <span class="offer-amount">9<span class="offer-amount-dec">,90</span></span>
         </div>
-        <ul class="oitems">
-          <li><span class="ck">✓</span> FemSync Audio (12 min)</li>
-          <li><span class="ck">✓</span> Acesso vitalício no celular</li>
-          <li><span class="ck">✓</span> Guia de uso e instruções</li>
-          <li><span class="ck">✓</span> Entrega digital imediata</li>
+        <p class="offer-note">Pagamento único · Acesso vitalício</p>
+        <ul class="offer-items">
+          <li><span class="check-icon"></span> Áudio principal CorpoLeve (12 min)</li>
+          <li><span class="check-icon"></span> Acesso pelo celular e computador</li>
+          <li><span class="check-icon"></span> Guia de introdução ao ritual</li>
+          <li><span class="check-icon"></span> Acesso vitalício ao áudio</li>
         </ul>
-        <a href="#" class="btn btn-outline" style="width:100%;display:block;text-align:center;">Quero o Essencial</a>
-        <div class="oguarantee">Garantia de 7 dias · Devolução sem burocracia</div>
+        <button class="offer-cta" onclick="document.querySelector('.close-section').scrollIntoView({behavior:'smooth'})">Começar com o Essencial</button>
       </div>
 
-      <div class="ocard prem">
-        <div class="obadge">✦ Mais escolhido</div>
-        <div class="oname">Protocolo Completo</div>
-        <div class="osub">Interrupção Profunda</div>
-        <div class="oprice">
-          <span class="de">De R$97,00</span>
-          <span class="pref">R$</span><span class="val">17</span><span class="cts">,90</span>
+      <!-- PREMIUM -->
+      <div class="offer-card featured">
+        <div class="offer-popular-badge">✦ Mais completo</div>
+        <p class="offer-name">Completo</p>
+        <p class="offer-desc">A experiência integral para resultados mais consistentes</p>
+        <div class="offer-price">
+          <span class="offer-currency">R$</span>
+          <span class="offer-amount">17<span class="offer-amount-dec">,90</span></span>
         </div>
-        <ul class="oitems">
-          <li><span class="ck">✓</span> FemSync Audio principal (12 min)</li>
-          <li><span class="ck gd">✦</span> <span class="bon"><strong>Protocolo Anti-Urgência</strong> — para noites de crise</span></li>
-          <li><span class="ck gd">✦</span> <span class="bon"><strong>Áudio de Sono Profundo</strong> — desaceleração total</span></li>
-          <li><span class="ck gd">✦</span> <span class="bon"><strong>Guia: Comida e Emoção</strong> — PDF + áudio guiado</span></li>
-          <li><span class="ck gd">✦</span> <span class="bon"><strong>Ritual dos 7 Primeiros Dias</strong> — sequência de entrada</span></li>
-          <li><span class="ck gd">✦</span> <span class="bon"><strong>Áudio para Noites de Ansiedade</strong></span></li>
-          <li><span class="ck">✓</span> Atualizações incluídas</li>
+        <p class="offer-note">Pagamento único · Acesso vitalício</p>
+        <ul class="offer-items">
+          <li><span class="check-icon"></span> Áudio principal CorpoLeve (12 min)</li>
+          <li><span class="check-icon"></span> <strong>+ Áudio Ritual Noturno Profundo</strong></li>
+          <li><span class="check-icon"></span> <strong>+ Frequência Anti-Compulsão (8 min)</strong></li>
+          <li><span class="check-icon"></span> <strong>+ Protocolo Anti-Ansiedade</strong></li>
+          <li><span class="check-icon"></span> <strong>+ Guia Equilíbrio Hormonal Feminino</strong></li>
+          <li><span class="check-icon"></span> <strong>+ Atualizações futuras incluídas</strong></li>
+          <li><span class="check-icon"></span> Suporte prioritário</li>
         </ul>
-        <a href="#" class="btn btn-primary" style="width:100%;display:block;text-align:center;">Ativar Protocolo Completo</a>
-        <div class="oguarantee" style="color:#4A4038;">Garantia de 7 dias · Sem perguntas · Devolução integral</div>
+        <button class="offer-cta featured-cta" onclick="document.querySelector('.close-section').scrollIntoView({behavior:'smooth'})">Quero o Completo</button>
+        <p class="offer-value-note">Você recebe R$127 em conteúdo por R$17,90</p>
       </div>
-    </div>
-
-    <div class="urgency">
-      Cada noite que o ciclo se repete, ele fica um pouco mais automático. Não existe segunda-feira ideal. Existe esta noite.
     </div>
   </div>
 </section>
 
-<!-- ══════════ TRUST ══════════ -->
-<section class="sec-trust">
-  <div class="trust-row">
-    <div class="tbadge"><div class="tbadge-icon">🔒</div><span>Pagamento seguro</span></div>
-    <div class="tbadge"><div class="tbadge-icon">📱</div><span>Acesso instantâneo</span></div>
-    <div class="tbadge"><div class="tbadge-icon">↩️</div><span>Garantia 7 dias</span></div>
-    <div class="tbadge"><div class="tbadge-icon">🌙</div><span>Use hoje à noite</span></div>
-    <div class="tbadge"><div class="tbadge-icon">📋</div><span>Resultados variam</span></div>
+<!-- TRUST -->
+<section class="trust-section">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <h5>Pagamento seguro</h5>
+        <p>Criptografia SSL em todas as transações</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📱</div>
+        <h5>Acesso imediato</h5>
+        <p>Receba no e-mail assim que confirmar</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔐</div>
+        <h5>Privacidade total</h5>
+        <p>Seus dados nunca são compartilhados</p>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">📦</div>
+        <h5>100% digital</h5>
+        <p>Sem entrega física. Sem espera.</p>
+      </div>
+    </div>
+
+    <div class="guarantee-block">
+      <div class="guarantee-seal">🛡️</div>
+      <div>
+        <h4>Garantia de 7 dias</h4>
+        <p>Experimente o CorpoLeve por 7 dias. Se por qualquer motivo você não se sentir satisfeita, basta enviar um e-mail e devolvemos 100% do valor, sem perguntas, sem burocracia. O risco é zero — e a decisão é inteiramente sua.</p>
+      </div>
+    </div>
+
+    <p style="text-align:center;font-size:12px;color:var(--text-soft);margin-top:24px;line-height:1.8">
+      * Resultados individuais podem variar. O CorpoLeve é um produto de bem-estar digital e não substitui orientação médica ou nutricional profissional. As afirmações baseiam-se em pesquisas sobre neurociência e regulação do sistema nervoso autônomo. Resultados dependem do uso contínuo e consistente.
+    </p>
   </div>
 </section>
 
-<!-- ══════════ FAQ ══════════ -->
-<section class="sec-faq">
-  <div class="c tc">
-    <span class="sec-label">dúvidas</span>
-    <h2 style="font-size:clamp(22px,3.5vw,30px);">Respostas diretas</h2>
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <span class="section-eyebrow" style="text-align:center;display:block">Dúvidas frequentes</span>
+    <h2 class="section-title" style="text-align:center">Tudo que você precisa<br>saber antes de começar</h2>
     <div class="faq-list">
+
       <div class="faq-item">
-        <button class="faq-q">Isso é hipnose?</button>
-        <div class="faq-a"><p>Não. FemSync é um protocolo de áudio com camadas de frequência sonora relaxante — sem sugestão, sem voz guiada comandando comportamentos. É estimulação auditiva direcionada ao relaxamento, não hipnose.</p></div>
+        <button class="faq-question" onclick="toggleFaq(this.parentElement)">
+          Funciona para qualquer idade?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-answer"><p>Sim. O CorpoLeve foi desenvolvido especialmente para mulheres de 25 a 55 anos, incluindo quem está na perimenopausa ou menopausa. O mecanismo de ação atua no sistema nervoso autônomo, que responde positivamente ao estímulo sonoro em qualquer faixa etária.</p></div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-q">Funciona mesmo dormindo?</button>
-        <div class="faq-a"><p>Sim, e esse é um dos usos mais comuns. A maioria das usuárias não chega ao final antes de adormecer. O sistema nervoso continua processando os estímulos sonoros mesmo em sono leve — que é exatamente quando a transição para descanso profundo acontece.</p></div>
+        <button class="faq-question" onclick="toggleFaq(this.parentElement)">
+          Preciso fazer dieta junto?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-answer"><p>Não. O CorpoLeve não exige nenhuma mudança na alimentação para que você comece. Muitas usuárias relatam que a própria compulsão diminui naturalmente com o uso contínuo — o que transforma a relação com a comida sem esforço consciente.</p></div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-q">Quando vou sentir diferença?</button>
-        <div class="faq-a"><p>A maioria percebe qualidade de sono diferente já na primeira semana. Redução em urgência noturna costuma aparecer entre 2 e 4 semanas de uso consistente. O processo é gradual — e por isso tende a ser permanente, não temporário.</p></div>
+        <button class="faq-question" onclick="toggleFaq(this.parentElement)">
+          Quanto tempo por dia preciso usar?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-answer"><p>Apenas 12 minutos por dia. O ideal é usar à noite antes de dormir, mas o áudio também pode ser ouvido ao acordar ou em qualquer momento tranquilo do dia.</p></div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-q">Preciso de fone de ouvido?</button>
-        <div class="faq-a"><p>Recomendamos fone, especialmente para o Protocolo Completo com camadas binaurais. Mas o áudio principal funciona bem no alto-falante do celular. O mais importante é o que for confortável para dormir.</p></div>
+        <button class="faq-question" onclick="toggleFaq(this.parentElement)">
+          Funciona enquanto eu adormeço?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-answer"><p>Sim. Muitas usuárias adormecem durante o áudio — e isso não é problema. O estímulo sonoro continua agindo mesmo nos estágios iniciais do sono.</p></div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-q">Funciona para mulheres acima dos 40?</button>
-        <div class="faq-a"><p>Sim. O mecanismo é o relaxamento do sistema nervoso, que responde a estimulação sonora independente da faixa etária. Mulheres em períodos de maior instabilidade emocional reportam resultados especialmente significativos.</p></div>
+        <button class="faq-question" onclick="toggleFaq(this.parentElement)">
+          Preciso usar fone de ouvido?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-answer"><p>Fone de ouvido potencializa a experiência e é recomendado para os melhores resultados, mas não é obrigatório. O áudio também funciona com caixa de som em volume confortável.</p></div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-q">É produto físico? Preciso esperar chegar?</button>
-        <div class="faq-a"><p>Não. FemSync é 100% digital. Após a compra, acesso imediato pelo celular — sem espera, sem frete. Você usa ainda esta noite.</p></div>
+        <button class="faq-question" onclick="toggleFaq(this.parentElement)">
+          Quando começo a perceber diferença?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-answer"><p>A maioria das usuárias relata perceber melhora no sono e no estado emocional já na primeira semana. Mudanças relacionadas ao peso e ao apetite costumam se tornar mais evidentes entre a 2ª e a 4ª semana de uso regular.</p></div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-q">E se não funcionar pra mim?</button>
-        <div class="faq-a"><p>7 dias de garantia total. Se por qualquer motivo não ficar satisfeita, devolvemos 100% do valor sem burocracia e sem perguntas. O risco é completamente nosso.</p></div>
+        <button class="faq-question" onclick="toggleFaq(this.parentElement)">
+          É um produto físico?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-answer"><p>Não. O CorpoLeve é 100% digital. Após a confirmação do pagamento, você recebe o link de acesso no seu e-mail em poucos minutos e já pode começar esta noite.</p></div>
       </div>
+
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this.parentElement)">
+          E se eu não gostar?
+          <span class="faq-arrow">↓</span>
+        </button>
+        <div class="faq-answer"><p>Você tem 7 dias de garantia completa. Se por qualquer razão não se sentir satisfeita, é só enviar um e-mail e devolvemos 100% do que você pagou. Sem questionamentos.</p></div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ══════════ CLOSE ══════════ -->
-<section class="sec-close">
-  <div class="c tc">
-    <h2>Você não precisa mais<br>sobreviver às suas próprias noites.</h2>
-    <p class="close-sub">Não é sobre força de vontade. É sobre interromper o estado que gera o ciclo — antes que ele comece.</p>
-    <p class="close-q">"12 minutos antes de dormir. Todo dia. É o suficiente para o ciclo começar a mudar."</p>
-    <a href="#oferta" class="btn btn-primary">Quero Interromper Esse Ciclo Hoje</a>
-    <div class="close-micro">A partir de R$9,90 · Acesso imediato · Garantia de 7 dias</div>
+<!-- FINAL CLOSE -->
+<section class="close-section">
+  <div class="container">
+    <hr class="divider">
+    <h2>Você não precisa mais<br>lutar contra o seu <em>próprio corpo</em></h2>
+    <p>Talvez a resposta nunca tenha sido mais esforço, mais restrição, mais força de vontade. Talvez seja simplesmente dar ao seu sistema nervoso o descanso que ele nunca teve.</p>
+    <a href="#oferta" class="cta-btn">Quero Começar Esta Noite</a>
+    <p class="cta-small-note" style="margin-top:20px">Acesso em minutos · A partir de R$9,90 · 7 dias de garantia</p>
+
+    <div style="margin-top:48px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
+      <span style="font-size:13px;color:var(--text-soft);background:rgba(255,255,255,0.5);padding:6px 14px;border-radius:50px">🔒 Pagamento seguro</span>
+      <span style="font-size:13px;color:var(--text-soft);background:rgba(255,255,255,0.5);padding:6px 14px;border-radius:50px">📱 Acesso imediato</span>
+      <span style="font-size:13px;color:var(--text-soft);background:rgba(255,255,255,0.5);padding:6px 14px;border-radius:50px">🛡️ 7 dias de garantia</span>
+    </div>
   </div>
 </section>
 
-<footer>
-  <div class="flinks">
-    <a href="#">Política de Privacidade</a>
-    <a href="#">Termos de Uso</a>
-    <a href="#">Suporte</a>
+<!-- FOOTER -->
+<div class="footer">
+  <p>CorpoLeve Audio™ · Produto digital de bem-estar feminino</p>
+  <p>
+    <a href="#">Política de Privacidade</a> &nbsp;·&nbsp;
+    <a href="#">Termos de Uso</a> &nbsp;·&nbsp;
     <a href="#">Contato</a>
-  </div>
-  <p>© 2024 FemSync · Produto digital para bem-estar e relaxamento<br>
-  Os resultados variam individualmente. Este produto não é um medicamento e não substitui tratamento médico, nutricional ou psicológico. As afirmações não foram avaliadas por órgãos regulatórios de saúde.</p>
-</footer>
+  </p>
+  <p style="margin-top:12px;font-size:12px;opacity:0.6;max-width:600px;margin-left:auto;margin-right:auto">
+    Este produto é destinado ao bem-estar geral e não tem finalidade de diagnóstico, tratamento ou cura de doenças. Os resultados podem variar de pessoa para pessoa. Consulte sempre um profissional de saúde para orientação médica.
+  </p>
+</div>
 
-<div class="sticky" id="sticky">
-  <span class="sticky-txt"><strong>FemSync</strong> — Protocolo Noturno Feminino</span>
-  <a href="#oferta" class="btn btn-primary" style="padding:12px 28px;font-size:14px;">Interromper o Ciclo — R$9,90</a>
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="sticky">
+  <div class="sticky-cta-text"><strong>CorpoLeve Audio™</strong> · A partir de R$9,90</div>
+  <button class="sticky-btn" onclick="document.getElementById('oferta').scrollIntoView({behavior:'smooth'})">Quero Acessar</button>
 </div>
 
 <script>
-document.querySelectorAll('.faq-q').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const item=btn.parentElement;
-    const open=item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-    if(!open)item.classList.add('open');
+  // Generate waveform bars
+  const wf = document.getElementById('waveform');
+  if (wf) {
+    for (let i = 0; i < 32; i++) {
+      const b = document.createElement('div');
+      b.className = 'waveform-bar';
+      const h = 15 + Math.random() * 25;
+      b.style.height = h + 'px';
+      b.style.animationDelay = (Math.random() * 1.2) + 's';
+      b.style.animationDuration = (0.8 + Math.random() * 0.8) + 's';
+      wf.appendChild(b);
+    }
+  }
+
+  // FAQ toggle
+  function toggleFaq(item) {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Sticky CTA
+  const sticky = document.getElementById('sticky');
+  const hero = document.querySelector('.hero');
+  window.addEventListener('scroll', () => {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    sticky.classList.toggle('visible', heroBottom < 0);
   });
-});
-new IntersectionObserver(e=>{
-  document.getElementById('sticky').classList.toggle('on',!e[0].isIntersecting);
-},{threshold:0}).observe(document.querySelector('.hero'));
 </script>
 </body>
 </html>
