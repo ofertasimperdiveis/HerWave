@@ -1,104 +1,119 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FemSync — Protocolo Noturno Feminino</title>
+<title>FemSync — Protocolo Noturno de Desaceleração Feminina</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#FAFAF8;--bg2:#F3EEE8;--dark:#1C1814;--dark2:#232018;
   --nude:#EAD9C8;--nude2:#D4BFA8;
-  --rose:#C0614F;--rose2:#A84D3C;--rose-light:#F5E8E5;
+  --rose:#C0614F;--rose2:#A84D3C;
   --gold:#B8963E;--gold-light:#EED8A0;
   --text:#1A1410;--text2:#4A3F38;--text3:#7A6D65;
-  --border:#DDD5C8;--border2:#CCC4B8;
+  --border:#DDD5C8;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
 h1,h2,h3{font-family:'Lora',serif;font-weight:600;line-height:1.2;}
 p{line-height:1.8;font-weight:300;}
-.serif{font-family:'Lora',serif;}
 .tc{text-align:center;}
 .c{max-width:640px;margin:0 auto;padding:0 20px;}
-.cw{max-width:860px;margin:0 auto;padding:0 20px;}
+.cw{max-width:880px;margin:0 auto;padding:0 20px;}
 
-/* TOPBAR */
-.topbar{background:var(--dark);color:#C8B8A8;text-align:center;padding:11px 20px;font-size:13px;font-weight:300;}
+/* ── TOPBAR ── */
+.topbar{background:var(--dark);color:#C0B0A0;text-align:center;padding:11px 20px;font-size:13px;font-weight:300;}
 .topbar strong{color:var(--gold-light);font-weight:500;}
 
-/* NAV */
+/* ── NAV ── */
 .nav{background:var(--bg);border-bottom:1px solid var(--border);padding:16px 24px;display:flex;align-items:center;justify-content:center;}
 .logo{font-family:'Lora',serif;font-size:18px;color:var(--text);letter-spacing:.05em;}
 .logo-sub{font-size:10px;color:var(--rose);letter-spacing:.18em;text-transform:uppercase;font-weight:500;margin-left:8px;vertical-align:middle;}
 
 /* ── HERO ── */
 .hero{background:var(--dark);padding:72px 20px 80px;text-align:center;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(192,97,79,.1) 0%,transparent 65%);pointer-events:none;}
+.hero::before{content:'';position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(192,97,79,.09) 0%,transparent 60%);pointer-events:none;}
 
-.hero-label{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:500;padding:7px 16px;border:1px solid rgba(192,97,79,.35);border-radius:40px;margin-bottom:28px;background:rgba(192,97,79,.07);}
+.hero-label{display:inline-block;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);font-weight:500;padding:7px 16px;border:1px solid rgba(192,97,79,.3);border-radius:40px;margin-bottom:28px;background:rgba(192,97,79,.07);}
 
-.hero h1{font-size:clamp(28px,5.5vw,48px);color:#F2E8DE;max-width:600px;margin:0 auto 16px;line-height:1.18;}
+.hero h1{font-size:clamp(28px,5.5vw,50px);color:#F2E8DE;max-width:620px;margin:0 auto 18px;line-height:1.15;}
 .hero h1 em{color:var(--rose);font-style:italic;}
-.hero h1 span{color:#C8B49A;}
 
-.hero-sub{font-size:16px;color:#7A6E64;max-width:500px;margin:0 auto 40px;font-weight:300;line-height:1.75;}
-.hero-sub strong{color:#AFA098;font-weight:500;}
+/* tension line */
+.hero-tension{font-size:17px;color:#8A7E74;max-width:520px;margin:0 auto 36px;font-weight:300;line-height:1.75;font-family:'Lora',serif;font-style:italic;}
 
 /* wave */
-.hero-wave{margin:0 auto 40px;width:260px;}
-.hero-wave svg path{animation:wavePulse 3s ease-in-out infinite;}
-.hero-wave svg path:nth-child(2){animation-delay:.5s;}
-.hero-wave svg path:nth-child(3){animation-delay:1s;}
-@keyframes wavePulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+.hero-wave{margin:0 auto 40px;width:260px;height:48px;}
+.hero-wave svg{opacity:.7;}
 
-/* CTAs */
 .btn{display:inline-block;font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.02em;border-radius:6px;text-decoration:none;cursor:pointer;transition:all .2s;border:none;}
 .btn-primary{background:var(--rose);color:#FFF2EE;font-size:16px;padding:20px 44px;box-shadow:0 4px 20px rgba(192,97,79,.45);}
 .btn-primary:hover{background:var(--rose2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(192,97,79,.55);}
-.btn-outline{background:transparent;color:#AFA098;font-size:15px;padding:16px 36px;border:1px solid rgba(175,160,152,.3);}
-.btn-outline:hover{border-color:rgba(175,160,152,.6);color:#C8B8A8;}
+.btn-outline{background:transparent;color:#8A7E74;font-size:15px;padding:15px 36px;border:1px solid rgba(138,126,116,.3);}
+.btn-outline:hover{border-color:rgba(138,126,116,.55);color:#AFA098;}
 
-.hero-micro{margin-top:16px;font-size:13px;color:#4A4038;}
+.hero-micro{margin-top:16px;font-size:13px;color:#3A3430;}
 
-/* ── HOOK BAND ── */
-.hook-band{background:var(--rose);padding:22px 20px;text-align:center;}
-.hook-band p{font-size:17px;color:#FFF0EC;font-weight:400;line-height:1.55;font-family:'Lora',serif;font-style:italic;max-width:560px;margin:0 auto;}
-.hook-band strong{font-style:normal;font-weight:600;}
+/* ── RECOGNITION BAND ── */
+.rband{background:var(--rose);padding:28px 20px;text-align:center;}
+.rband p{font-family:'Lora',serif;font-style:italic;font-size:18px;color:#FFF0EC;line-height:1.6;max-width:560px;margin:0 auto;}
+.rband strong{font-style:normal;font-weight:600;}
 
-/* ── DORES ── */
-.sec-dores{background:var(--bg2);padding:72px 20px;border-bottom:1px solid var(--border);}
+/* ── DOR (SEÇÃO 1 — IDENTIFICAÇÃO VISCERAL) ── */
+.sec-dor{background:var(--bg2);padding:72px 20px;border-bottom:1px solid var(--border);}
 .sec-label{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);font-weight:500;margin-bottom:14px;}
-.dores-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;max-width:640px;margin:40px auto 44px;}
-.dore{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:18px;display:flex;gap:14px;align-items:flex-start;}
-.dore-icon{font-size:18px;flex-shrink:0;margin-top:2px;opacity:.75;}
-.dore-text{font-size:14px;color:var(--text2);font-weight:300;line-height:1.6;}
-.dores-turn{max-width:480px;margin:0 auto;text-align:center;font-family:'Lora',serif;font-size:18px;font-style:italic;color:var(--text2);line-height:1.7;padding:28px 0 0;border-top:1px solid var(--border);}
-.dores-turn strong{font-style:normal;color:var(--text);}
 
-/* ── MECANISMO ENXUTO ── */
-.sec-mec{background:var(--dark);padding:80px 20px;position:relative;overflow:hidden;}
-.sec-mec::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 80% 30%,rgba(184,150,62,.05) 0%,transparent 55%);pointer-events:none;}
-.sec-mec .sec-label{color:var(--gold);}
-.mec-h{font-size:clamp(22px,4vw,34px);color:#F0E4D8;max-width:520px;margin:0 auto 16px;}
-.mec-sub{font-size:15px;color:#6A5E54;max-width:500px;margin:0 auto 52px;font-weight:300;line-height:1.8;}
-.mec-sub strong{color:#9A8E84;font-weight:400;}
+.dor-list{max-width:580px;margin:40px auto 48px;display:flex;flex-direction:column;gap:0;}
+.dor-item{display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-bottom:1px solid var(--border);}
+.dor-item:last-child{border-bottom:none;}
+.dor-check{color:var(--rose);font-size:18px;flex-shrink:0;margin-top:2px;opacity:.8;}
+.dor-text{font-size:15px;color:var(--text2);font-weight:300;line-height:1.6;}
+.dor-text strong{color:var(--text);font-weight:500;}
 
-.mec-row{max-width:580px;margin:0 auto;display:flex;flex-direction:column;gap:0;}
-.mec-item{display:flex;gap:20px;align-items:flex-start;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.06);}
-.mec-item:last-child{border-bottom:none;}
-.mec-dot{width:8px;height:8px;border-radius:50%;background:var(--rose);flex-shrink:0;margin-top:7px;}
-.mec-body h4{font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#D4C8BC;margin-bottom:6px;}
-.mec-body p{font-size:14px;color:#5A5048;font-weight:300;line-height:1.75;}
-.mec-body p strong{color:#8A7E74;font-weight:400;}
+/* tension escalation block */
+.tension-block{max-width:520px;margin:0 auto;padding:32px;background:var(--bg);border:1px solid var(--border);border-radius:12px;border-left:3px solid var(--rose);}
+.tension-block p{font-size:16px;color:var(--text2);font-weight:300;line-height:1.8;margin-bottom:12px;}
+.tension-block p:last-child{margin-bottom:0;}
+.tension-block strong{color:var(--text);font-weight:500;}
 
-.mec-disclaimer{max-width:520px;margin:40px auto 0;padding:16px 20px;border:1px solid rgba(255,255,255,.06);border-radius:8px;font-size:12px;color:#3A3430;font-style:italic;line-height:1.7;text-align:center;}
+/* ── TURNING POINT ── */
+.sec-turn{background:var(--bg);padding:72px 20px;}
+.turn-h{font-size:clamp(24px,4vw,36px);color:var(--text);max-width:500px;margin:0 auto 14px;}
+.turn-sub{font-size:16px;color:var(--text2);max-width:480px;margin:0 auto 48px;font-weight:300;line-height:1.8;}
+
+.turn-steps{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:0;}
+.turn-step{display:flex;gap:20px;padding:26px 0;border-bottom:1px solid var(--border);}
+.turn-step:last-child{border-bottom:none;}
+.turn-num{font-family:'Lora',serif;font-size:36px;color:rgba(192,97,79,.2);font-weight:600;line-height:1;min-width:44px;flex-shrink:0;}
+.turn-body h4{font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--text);margin-bottom:7px;}
+.turn-body p{font-size:14px;color:var(--text2);font-weight:300;line-height:1.75;}
+.turn-body p strong{color:var(--text);font-weight:500;}
+
+.turn-cta-wrap{text-align:center;padding-top:48px;}
+.turn-cta-note{margin-top:14px;font-size:13px;color:var(--text3);}
+
+/* ── DEPOIS: TANGIBILIZAÇÃO ── */
+.sec-depois{background:var(--dark);padding:80px 20px;position:relative;overflow:hidden;}
+.sec-depois::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 70% 40%,rgba(184,150,62,.06) 0%,transparent 55%);pointer-events:none;}
+.sec-depois .sec-label{color:var(--gold);}
+.sec-depois h2{color:#F0E4D8;font-size:clamp(22px,3.5vw,32px);max-width:460px;margin:0 auto 48px;}
+
+.depois-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:620px;margin:0 auto 0;}
+@media(max-width:520px){.depois-grid{grid-template-columns:1fr;}}
+.depois-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:22px 20px;}
+.depois-icon{font-size:22px;margin-bottom:12px;display:block;opacity:.75;}
+.depois-item h4{font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:#D4C8BC;margin-bottom:7px;}
+.depois-item p{font-size:13px;color:#5A5048;font-weight:300;line-height:1.65;}
+.depois-item .antes{font-size:12px;color:#3A3430;font-style:italic;margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,.05);}
+.depois-item .depois{font-size:12px;color:rgba(192,97,79,.7);font-style:italic;}
 
 /* ── PROVA SOCIAL ── */
-.sec-proof{background:var(--bg);padding:80px 20px;}
-.testimonials{max-width:660px;margin:48px auto;display:flex;flex-direction:column;gap:18px;}
-.tcard{background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:26px 22px;}
-.tcard.feat{background:var(--bg);border-color:rgba(192,97,79,.3);box-shadow:0 4px 20px rgba(192,97,79,.08);}
+.sec-proof{background:var(--bg2);padding:80px 20px;}
+.testimonials{max-width:640px;margin:48px auto;display:flex;flex-direction:column;gap:18px;}
+.tcard{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:26px 22px;}
+.tcard.feat{border-color:rgba(192,97,79,.3);box-shadow:0 4px 20px rgba(192,97,79,.08);}
 .tcard-stars{color:var(--gold);font-size:13px;letter-spacing:3px;margin-bottom:12px;}
 .tcard-text{font-size:15px;color:var(--text2);line-height:1.78;font-weight:300;margin-bottom:18px;font-family:'Lora',serif;font-style:italic;}
 .tcard-author{display:flex;align-items:center;gap:12px;}
@@ -106,14 +121,23 @@ p{line-height:1.8;font-weight:300;}
 .tcard-name{font-size:14px;font-weight:500;color:var(--text);}
 .tcard-meta{font-size:12px;color:var(--text3);margin-top:2px;}
 
-.wpp{max-width:360px;margin:36px auto 0;background:#E5DDD4;border-radius:16px;padding:20px 16px;}
-.wpp-hdr{text-align:center;font-size:12px;color:#7A7060;margin-bottom:14px;}
-.wpp-msg{background:#FFF;border-radius:14px 14px 14px 4px;padding:10px 14px;margin-bottom:10px;font-size:14px;color:#1A1410;line-height:1.6;max-width:88%;font-weight:300;}
-.wpp-msg .t{font-size:10px;color:#999;text-align:right;margin-top:4px;}
+/* wpp */
+.wpp{max-width:360px;margin:36px auto 0;background:#DDD5CC;border-radius:16px;padding:20px 16px;}
+.wpp-hdr{text-align:center;font-size:12px;color:#6A6058;margin-bottom:14px;}
+.wpp-msg{background:#FFF;border-radius:14px 14px 14px 4px;padding:10px 14px;margin-bottom:10px;font-size:14px;color:#1A1410;line-height:1.6;max-width:90%;font-weight:300;}
+.wpp-t{font-size:10px;color:#999;text-align:right;margin-top:4px;}
 
-/* ── PRODUTO / OFERTA ── */
+/* ── COMO USA ── */
+.sec-uso{background:var(--bg);padding:72px 20px;border-top:1px solid var(--border);}
+.uso-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;max-width:640px;margin:44px auto 0;}
+.uso-step{text-align:center;padding:24px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:12px;}
+.uso-num{font-family:'Lora',serif;font-size:32px;color:rgba(192,97,79,.3);font-weight:600;margin-bottom:10px;display:block;}
+.uso-step h4{font-size:14px;font-weight:500;color:var(--text);margin-bottom:7px;}
+.uso-step p{font-size:13px;color:var(--text2);font-weight:300;line-height:1.6;}
+
+/* ── OFERTA ── */
 .sec-offer{background:var(--dark);padding:88px 20px;position:relative;overflow:hidden;}
-.sec-offer::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 80%,rgba(192,97,79,.07) 0%,transparent 55%);pointer-events:none;}
+.sec-offer::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 25% 75%,rgba(192,97,79,.08) 0%,transparent 55%);pointer-events:none;}
 .sec-offer .sec-label{color:var(--rose);}
 .sec-offer h2{color:#F0E4D8;}
 
@@ -123,22 +147,22 @@ p{line-height:1.8;font-weight:300;}
 .ocard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:32px 24px;text-align:center;position:relative;}
 .ocard.prem{border:1px solid rgba(192,97,79,.4);background:rgba(192,97,79,.06);}
 .obadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--rose);color:#FFF5F0;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 16px;border-radius:40px;white-space:nowrap;}
-.oname{font-family:'Lora',serif;font-size:19px;color:#E0D4C8;margin-bottom:4px;margin-top:6px;}
+.oname{font-family:'Lora',serif;font-size:19px;color:#E0D4C8;margin-bottom:3px;margin-top:6px;}
 .osub{font-size:11px;color:#4A4038;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-bottom:18px;}
 .oprice{margin-bottom:22px;}
 .oprice .de{display:block;font-size:12px;color:#4A4038;text-decoration:line-through;margin-bottom:4px;}
-.oprice .pref{font-size:14px;color:#6A6058;vertical-align:top;margin-top:8px;display:inline-block;}
+.oprice .pref{font-size:14px;color:#6A6058;vertical-align:top;margin-top:9px;display:inline-block;}
 .oprice .val{font-family:'Lora',serif;font-size:52px;color:#F0E4D8;line-height:1;}
-.oprice .cts{font-family:'Lora',serif;font-size:22px;color:#F0E4D8;vertical-align:top;margin-top:8px;display:inline-block;}
+.oprice .cts{font-family:'Lora',serif;font-size:22px;color:#F0E4D8;vertical-align:top;margin-top:9px;display:inline-block;}
 .oitems{list-style:none;text-align:left;margin-bottom:22px;}
 .oitems li{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#6A6058;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.05);font-weight:300;line-height:1.5;}
 .oitems li:last-child{border-bottom:none;}
 .ck{color:var(--rose);flex-shrink:0;margin-top:1px;font-size:14px;}
 .ck.gd{color:var(--gold);}
-.oitems .bon{color:#9A8E84;}
+.bon{color:#9A8E84;}
 .oguarantee{font-size:11px;color:#3A3430;margin-top:10px;line-height:1.6;}
 
-.urgency{max-width:520px;margin:0 auto;text-align:center;font-size:14px;color:#5A5048;font-weight:300;line-height:1.7;padding:20px;border:1px solid rgba(192,97,79,.12);border-radius:8px;background:rgba(192,97,79,.04);position:relative;z-index:1;}
+.urgency{max-width:520px;margin:0 auto;text-align:center;font-size:14px;color:#4A4038;font-weight:300;line-height:1.7;padding:22px;border:1px solid rgba(192,97,79,.12);border-radius:8px;background:rgba(192,97,79,.04);position:relative;z-index:1;}
 
 /* ── TRUST ── */
 .sec-trust{background:var(--bg2);padding:48px 20px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -155,16 +179,16 @@ p{line-height:1.8;font-weight:300;}
 .faq-q::after{content:'+';font-size:22px;color:var(--rose);flex-shrink:0;transition:transform .3s;font-weight:300;line-height:1;}
 .faq-item.open .faq-q::after{transform:rotate(45deg);}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
-.faq-item.open .faq-a{max-height:240px;}
+.faq-item.open .faq-a{max-height:260px;}
 .faq-a p{padding:0 0 20px;font-size:14px;color:var(--text2);font-weight:300;line-height:1.8;}
 
 /* ── CLOSE ── */
 .sec-close{background:var(--dark);padding:96px 20px;text-align:center;position:relative;overflow:hidden;}
 .sec-close::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(192,97,79,.09) 0%,transparent 65%);pointer-events:none;}
 .sec-close h2{font-size:clamp(26px,5vw,42px);color:#F0E4D8;max-width:500px;margin:0 auto 16px;position:relative;z-index:1;}
-.sec-close .close-sub{font-size:17px;color:#5A5048;max-width:440px;margin:0 auto 14px;font-weight:300;line-height:1.8;position:relative;z-index:1;}
-.sec-close .close-q{font-family:'Lora',serif;font-style:italic;font-size:17px;color:#7A6E64;max-width:400px;margin:0 auto 44px;line-height:1.7;position:relative;z-index:1;}
-.sec-close .close-micro{margin-top:16px;font-size:13px;color:#3A3430;position:relative;z-index:1;}
+.close-sub{font-size:17px;color:#5A5048;max-width:440px;margin:0 auto 14px;font-weight:300;line-height:1.8;position:relative;z-index:1;}
+.close-q{font-family:'Lora',serif;font-style:italic;font-size:17px;color:#7A6E64;max-width:380px;margin:0 auto 44px;line-height:1.7;position:relative;z-index:1;}
+.close-micro{margin-top:16px;font-size:13px;color:#3A3430;position:relative;z-index:1;}
 
 /* FOOTER */
 footer{background:#141210;color:#3A3428;padding:36px 20px;text-align:center;}
@@ -179,8 +203,9 @@ footer p{font-size:12px;line-height:1.75;max-width:600px;margin:0 auto;opacity:.
 .sticky-txt strong{color:#C8B8A8;font-weight:500;}
 
 @media(max-width:600px){
-  .hero{padding:60px 20px 70px;}
-  .dores-grid{grid-template-columns:1fr;}
+  .hero{padding:60px 20px 72px;}
+  .depois-grid{grid-template-columns:1fr;}
+  .uso-steps{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -193,145 +218,183 @@ footer p{font-size:12px;line-height:1.75;max-width:600px;margin:0 auto;opacity:.
   <span class="logo-sub">Protocolo Noturno</span>
 </nav>
 
-<!-- ══ HERO ══ -->
+<!-- ══════════ HERO ══════════ -->
 <section class="hero">
   <div class="c">
-    <div class="hero-label">Para mulheres que se perderam à noite</div>
+    <div class="hero-label">Para mulheres que se perdem à noite</div>
+
     <h1>
-      Você não perdeu o controle.<br>
-      <em>Seu corpo entrou em alerta.</em>
+      Você não tem fome.<br>
+      Você tem <em>compulsão emocional</em>.<br>
+      E existe uma diferença.
     </h1>
-    <p class="hero-sub">
-      Quando o dia foi pesado demais, o cérebro feminino busca alívio de noite — <strong>não é gula, não é fraqueza</strong>. É um mecanismo. E existe uma forma de interrompê-lo em 12 minutos.
+
+    <p class="hero-tension">
+      Toda noite o mesmo ciclo. Você resiste, cede, sente culpa, promete recomeçar. Não é fraqueza — é um estado mental que ninguém te ensinou a interromper.
     </p>
 
     <div class="hero-wave">
-      <svg width="260" height="56" viewBox="0 0 260 56" fill="none">
-        <path d="M0 28 Q16 10 32 28 Q48 46 64 28 Q80 10 96 28 Q112 46 128 28 Q144 10 160 28 Q176 46 192 28 Q208 10 224 28 Q240 46 260 28" stroke="rgba(192,97,79,.55)" stroke-width="2" stroke-linecap="round" fill="none"/>
-        <path d="M0 32 Q13 20 26 32 Q39 44 52 32 Q65 20 78 32 Q91 44 104 32 Q117 20 130 32 Q143 44 156 32 Q169 20 182 32 Q195 44 208 32 Q221 20 260 32" stroke="rgba(184,150,62,.3)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+      <svg width="260" height="48" viewBox="0 0 260 48" fill="none">
+        <path d="M0 24 Q15 8 30 24 Q45 40 60 24 Q75 8 90 24 Q105 40 120 24 Q135 8 150 24 Q165 40 180 24 Q195 8 210 24 Q225 40 260 24" stroke="rgba(192,97,79,.55)" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M0 28 Q12 18 24 28 Q36 38 48 28 Q60 18 72 28 Q84 38 96 28 Q108 18 120 28 Q132 38 144 28 Q156 18 168 28 Q180 38 220 28 Q240 20 260 28" stroke="rgba(184,150,62,.28)" stroke-width="1.5" stroke-linecap="round" fill="none"/>
       </svg>
     </div>
 
-    <a href="#oferta" class="btn btn-primary">Quero Recuperar Meu Controle Esta Noite</a>
-    <div class="hero-micro">R$9,90 · Acesso imediato · Sem dieta · Sem academia</div>
+    <a href="#oferta" class="btn btn-primary">Quero Interromper Esse Ciclo Hoje</a>
+    <div class="hero-micro">R$9,90 · Protocolo em áudio · 12 minutos · Acesso imediato</div>
   </div>
 </section>
 
-<!-- ══ HOOK BAND ══ -->
-<div class="hook-band">
-  <p>"<strong>O problema não era a comida.</strong> Era que meu cérebro não sabia como parar de estar em alerta."</p>
+<!-- ══════════ RECOGNITION BAND ══════════ -->
+<div class="rband">
+  <p>"Eu sabia exatamente o que estava fazendo. <strong>E não conseguia parar.</strong> Não era falta de força de vontade. Era algo que rodava sozinho."</p>
 </div>
 
-<!-- ══ DORES ══ -->
-<section class="sec-dores">
+<!-- ══════════ DOR — ESCALADA VISCERAL ══════════ -->
+<section class="sec-dor">
   <div class="c tc">
     <span class="sec-label">você se reconhece aqui?</span>
-    <h2 style="font-size:clamp(24px,4vw,34px);max-width:500px;margin:0 auto 14px;">
-      A noite é quando tudo<br>desmorona em silêncio
+    <h2 style="font-size:clamp(24px,4vw,34px);max-width:500px;margin:0 auto 12px;">
+      O ciclo que você tenta esconder
     </h2>
     <p style="font-size:16px;color:var(--text2);max-width:480px;margin:0 auto 36px;font-weight:300;line-height:1.8;">
-      Não é falta de disciplina. É o que acontece quando um dia inteiro de exigências não tem descarga emocional real.
+      Não é sobre comida. Nunca foi. É sobre o que acontece quando um dia inteiro de pressão, decisão e emoção represada não tem onde ir.
     </p>
 
-    <div class="dores-grid">
-      <div class="dore">
-        <div class="dore-icon">🌙</div>
-        <p class="dore-text">Come à noite quase sem conseguir parar — e acorda com aquela culpa familiar</p>
+    <div class="dor-list">
+      <div class="dor-item">
+        <span class="dor-check">•</span>
+        <p class="dor-text">Chega à noite exausta — e em vez de descansar, <strong>abre o armário sem nem perceber que foi</strong></p>
       </div>
-      <div class="dore">
-        <div class="dore-icon">🔁</div>
-        <p class="dore-text">Tentou de tudo. Funcionou por semanas. Travou. Voltou ao começo. De novo.</p>
+      <div class="dor-item">
+        <span class="dor-check">•</span>
+        <p class="dor-text">Come rápido, escondida, sem curtir — <strong>só para parar aquela urgência interna</strong> que não tem nome</p>
       </div>
-      <div class="dore">
-        <div class="dore-icon">👖</div>
-        <p class="dore-text">Evita espelho, evita foto, evita determinadas roupas. É quase automático já.</p>
+      <div class="dor-item">
+        <span class="dor-check">•</span>
+        <p class="dor-text">No dia seguinte acorda com culpa antes mesmo de abrir os olhos. <strong>O rosto inchado no espelho confirma.</strong></p>
       </div>
-      <div class="dore">
-        <div class="dore-icon">😶</div>
-        <p class="dore-text">Come escondida às vezes, ou sozinha, sem contar pra ninguém. A culpa secreta pesa mais.</p>
+      <div class="dor-item">
+        <span class="dor-check">•</span>
+        <p class="dor-text">Já prometeu "segunda começo" dezenas de vezes. <strong>Às vezes até começa. Mas a noite chega e o ciclo volta.</strong></p>
       </div>
-      <div class="dore">
-        <div class="dore-icon">💭</div>
-        <p class="dore-text">Pensa em comida numa frequência que às vezes te assusta. Não é fome — é outra coisa.</p>
+      <div class="dor-item">
+        <span class="dor-check">•</span>
+        <p class="dor-text">Evita espelho, evita foto, evita roupa que antes ficava bem. <strong>Virou automático não se olhar.</strong></p>
       </div>
-      <div class="dore">
-        <div class="dore-icon">😮‍💨</div>
-        <p class="dore-text">Acorda já pesada. O inchaço de manhã virou rotina. O rosto no espelho parece cansado.</p>
+      <div class="dor-item">
+        <span class="dor-check">•</span>
+        <p class="dor-text">Ninguém sabe a extensão disso. <strong>A culpa mais pesada não é a comida — é o silêncio em volta disso.</strong></p>
       </div>
     </div>
 
-    <p class="dores-turn">
-      Não é fraqueza de caráter.<br>
-      <strong>É o que o estresse crônico faz no corpo feminino.</strong>
-    </p>
+    <!-- ESCALADA -->
+    <div class="tension-block" style="margin-top:40px;">
+      <p>E o pior: você tentou força de vontade. Funcionou por uns dias. Depois voltou com mais força.</p>
+      <p>Tentou dieta. Funcionou nas primeiras semanas. Mas a noite sempre ganha no final.</p>
+      <p><strong>O problema não é sua falta de compromisso. É que ninguém te mostrou como desligar o estado mental que gera isso.</strong></p>
+    </div>
   </div>
 </section>
 
-<!-- ══ MECANISMO ENXUTO ══ -->
-<section class="sec-mec">
+<!-- ══════════ TURNING POINT ══════════ -->
+<section class="sec-turn">
   <div class="c tc">
-    <span class="sec-label" style="position:relative;z-index:1;">o que ninguém explicou ainda</span>
-    <h2 class="mec-h">
-      O corpo feminino em alerta<br>reage diferente — por design
+    <span class="sec-label">o que está por baixo disso</span>
+    <h2 class="turn-h">
+      Compulsão noturna não é fome.<br>É o cérebro buscando alívio.
     </h2>
-    <p class="mec-sub">
-      Quando o sistema nervoso não encontra espaço para descanso real, ele aciona <strong>respostas automáticas de sobrevivência</strong> — e uma delas é buscar alívio rápido através da comida. Não é falta de força de vontade. É biologia sob pressão.
+    <p class="turn-sub">
+      Quando o dia foi pesado demais e não houve descarga emocional real, o sistema nervoso feminino entra em estado de vigilância. À noite, exausto, ele busca a rota mais rápida para alívio — e encontra comida. Não é gula. É um mecanismo de sobrevivência mal direcionado.
     </p>
 
-    <div class="mec-row">
-      <div class="mec-item">
-        <div class="mec-dot"></div>
-        <div class="mec-body">
-          <h4>O alerta crônico não desliga sozinho</h4>
-          <p>Um dia cheio de decisões, pressões e emoções guardadas mantém o sistema nervoso em estado de vigilância mesmo à noite. <strong>O corpo não sabe que o perigo passou</strong> — então não libera. E a compulsão noturna é exatamente essa descarga não resolvida.</p>
+    <div class="turn-steps">
+      <div class="turn-step">
+        <div class="turn-num">01</div>
+        <div class="turn-body">
+          <h4>O estado de alerta não desliga com esforço consciente</h4>
+          <p>Você pode decidir "não vou comer". Mas o sistema que gerou a urgência ainda está ativo. Ele não responde a decisões — responde a <strong>sinais de segurança que o corpo precisa sentir</strong>.</p>
         </div>
       </div>
-      <div class="mec-item">
-        <div class="mec-dot"></div>
-        <div class="mec-body">
-          <h4>Força de vontade luta contra biologia — e perde</h4>
-          <p>À noite, o cérebro exausto busca qualquer fonte de alívio imediato. <strong>Resistir com esforço consciente</strong> é tentar usar o mesmo sistema que já está sobrecarregado. Não é estratégia. É desgaste.</p>
+      <div class="turn-step">
+        <div class="turn-num">02</div>
+        <div class="turn-body">
+          <h4>Frequências sonoras específicas comunicam segurança ao sistema nervoso</h4>
+          <p>É o mesmo princípio de como música lenta te faz relaxar naturalmente — mas <strong>em camadas calibradas para guiar o estado mental de vigilância para desaceleração real</strong>. Não é hipnose. É estimulação auditiva direcionada.</p>
         </div>
       </div>
-      <div class="mec-item">
-        <div class="mec-dot"></div>
-        <div class="mec-body">
-          <h4>O que muda quando o sistema nervoso finalmente descansa</h4>
-          <p>Quando o corpo sente sinal real de segurança, a urgência por alívio diminui. <strong>O sono se aprofunda. O inchaço cede. A relação com a comida começa a se reorganizar</strong> — sem esforço forçado.</p>
-        </div>
-      </div>
-      <div class="mec-item">
-        <div class="mec-dot"></div>
-        <div class="mec-body">
-          <h4>Frequência sonora como sinal de descanso</h4>
-          <p>Determinadas camadas de frequência sonora conseguem <strong>comunicar ao sistema nervoso que é seguro desacelerar</strong>. É o princípio do FemSync — não promessa médica, mas um convite ao estado que o corpo feminino já conhece e precisa reencontrar.</p>
+      <div class="turn-step">
+        <div class="turn-num">03</div>
+        <div class="turn-body">
+          <h4>Quando o estado muda, a urgência some sem esforço</h4>
+          <p>Usuárias não relatam "resistir mais". Relatam <strong>não sentir mais aquela urgência</strong>. A diferença é total — porque o mecanismo foi interrompido antes de ativar, não suprimido depois.</p>
         </div>
       </div>
     </div>
 
-    <div class="mec-disclaimer">
-      Este produto é para bem-estar e relaxamento. Não é medicamento. Não substitui acompanhamento médico ou nutricional. Resultados variam individualmente.
+    <div class="turn-cta-wrap">
+      <a href="#oferta" class="btn btn-primary">Quero Desligar Minha Compulsão Noturna</a>
+      <p class="turn-cta-note">12 minutos. Toda noite. Antes de dormir.</p>
     </div>
   </div>
 </section>
 
-<!-- ══ PROVA SOCIAL ══ -->
+<!-- ══════════ DEPOIS — TANGIBILIZAÇÃO ══════════ -->
+<section class="sec-depois">
+  <div class="c tc" style="position:relative;z-index:1;">
+    <span class="sec-label">o que começa a mudar</span>
+    <h2>Com o ciclo interrompido,<br>o corpo responde diferente</h2>
+
+    <div class="depois-grid">
+      <div class="depois-item">
+        <span class="depois-icon">🌙</span>
+        <h4>As noites param de ser guerra</h4>
+        <p>A urgência noturna diminui gradualmente. Você percebe que passou a noite sem atacar a cozinha — <em>não por esforço</em>, por ausência de urgência.</p>
+        <div class="antes">Antes: atacava o armário no piloto automático</div>
+        <div class="depois">Depois: a vontade simplesmente não apareceu</div>
+      </div>
+      <div class="depois-item">
+        <span class="depois-icon">😴</span>
+        <h4>O sono muda de textura</h4>
+        <p>Quando o sistema nervoso finalmente desacelera, o sono se aprofunda. Você acorda diferente — menos pesada, menos inchada, menos no modo sobrevivência.</p>
+        <div class="antes">Antes: acorda já cansada, rosto inchado</div>
+        <div class="depois">Depois: acorda com leveza que não sentia faz tempo</div>
+      </div>
+      <div class="depois-item">
+        <span class="depois-icon">👗</span>
+        <h4>O corpo começa a responder</h4>
+        <p>Sem os ciclos de compulsão e culpa, sem o inchaço crônico de sono interrompido, o corpo encontra um equilíbrio que dieta nunca conseguiu dar.</p>
+        <div class="antes">Antes: calça guardada no fundo do armário</div>
+        <div class="depois">Depois: fechou. Sem dieta. Sem academia.</div>
+      </div>
+      <div class="depois-item">
+        <span class="depois-icon">💗</span>
+        <h4>A relação com comida se reorganiza</h4>
+        <p>Sem a urgência emocional, a comida perde o papel de alívio. Você percebe que começa a comer com presença — não no piloto automático da compulsão.</p>
+        <div class="antes">Antes: comer escondida, rápido, com culpa</div>
+        <div class="depois">Depois: escolhe sem urgência, para quando quer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROVA SOCIAL ══════════ -->
 <section class="sec-proof">
   <div class="c tc">
-    <span class="sec-label">experiências reais</span>
-    <h2 style="font-size:clamp(22px,3.5vw,32px);max-width:460px;margin:0 auto;">O que muda quando<br>o alerta finalmente baixa</h2>
+    <span class="sec-label">quem já usou</span>
+    <h2 style="font-size:clamp(22px,3.5vw,32px);max-width:440px;margin:0 auto;">O que elas contam.</h2>
 
     <div class="testimonials">
       <div class="tcard feat">
         <div class="tcard-stars">★★★★★</div>
         <p class="tcard-text">
-          "Eu nem acreditei que ia funcionar, sendo honesta. Comprei às 23h porque tava na minha quarta vez abrindo o armário de cozinha naquele dia. Três semanas depois percebi que fui três dias sem atacar comida de madrugada. Não foi esforço — simplesmente não tava sentindo aquela urgência mais. A calça que eu não usava fechou no segundo mês."
+          "Eu tava no quarto ataque de cozinha do dia quando comprei isso. Às 23h, tava chorando. Achei que era mais uma coisa que ia me decepionar. Três semanas depois fui três dias sem atacar nada de madrugada. Não foi que eu resisti — simplesmente não senti aquela urgência. É diferente. É muito diferente. A calça jeans que eu não usava desde 2022 fechou no segundo mês."
         </p>
         <div class="tcard-author">
           <div class="tcard-av">AM</div>
           <div>
-            <div class="tcard-name">Ana M.</div>
-            <div class="tcard-meta">39 anos · São Paulo · há 7 semanas</div>
+            <div class="tcard-name">Ana M., 39 anos</div>
+            <div class="tcard-meta">São Paulo · cliente há 7 semanas</div>
           </div>
         </div>
       </div>
@@ -339,13 +402,13 @@ footer p{font-size:12px;line-height:1.75;max-width:600px;margin:0 auto;opacity:.
       <div class="tcard">
         <div class="tcard-stars">★★★★★</div>
         <p class="tcard-text">
-          "Minha coisa era ansiedade mesmo. Qualquer estresse virava comida. Depois de umas duas semanas comecei a conseguir pausar antes de abrir o armário. Não parei de vez, mas mudou muita coisa. Durmo muito melhor também."
+          "Minha coisa era ansiedade mesmo. Qualquer emoção virava comida. Não tô curada mas mudou muito. Consigo pausar antes de abrir o armário. Antes era automático. Durmo melhor também, isso eu percebi logo na primeira semana."
         </p>
         <div class="tcard-author">
           <div class="tcard-av">RP</div>
           <div>
-            <div class="tcard-name">Renata P.</div>
-            <div class="tcard-meta">33 anos · Porto Alegre</div>
+            <div class="tcard-name">Renata P., 33 anos</div>
+            <div class="tcard-meta">Porto Alegre · cliente há 5 semanas</div>
           </div>
         </div>
       </div>
@@ -353,45 +416,71 @@ footer p{font-size:12px;line-height:1.75;max-width:600px;margin:0 auto;opacity:.
       <div class="tcard">
         <div class="tcard-stars">★★★★★</div>
         <p class="tcard-text">
-          "Dois meses de uso. A calça que parei de usar em 2022 fechou semana passada. Não mudei dieta. Durmo melhor, tô mais tranquila, a barriga claramente diminuiu. Acho que nunca tinha realmente descansado antes."
+          "Dois meses. Calça que tava guardada fechou. Não fiz dieta. Durmo de verdade agora, acordar sem o rosto inchado que era todo dia. A barriga claramente diminuiu. Honestamente não esperava resultado físico, mas aconteceu."
         </p>
         <div class="tcard-author">
           <div class="tcard-av">CF</div>
           <div>
-            <div class="tcard-name">Carla F.</div>
-            <div class="tcard-meta">44 anos · Belo Horizonte</div>
+            <div class="tcard-name">Carla F., 44 anos</div>
+            <div class="tcard-meta">Belo Horizonte · cliente há 9 semanas</div>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- WhatsApp cru e imperfeito -->
     <div class="wpp">
-      <div class="wpp-hdr">💬 Mensagens recebidas esta semana</div>
+      <div class="wpp-hdr">💬 Mensagens recebidas</div>
       <div class="wpp-msg">
-        acordei e não tenho aquele inchaço todo. faz 3 semanas usando todo dia
-        <div class="t">hoje · 07:38</div>
+        gente 3 dias sem comer de madrugada. isso nunca tinha acontecido na minha vida juro rsrs
+        <div class="wpp-t">ontem · 22:47</div>
       </div>
       <div class="wpp-msg">
-        passei a semana sem atacar doce de noite. nunca tinha conseguido isso antes juro
-        <div class="t">ontem · 22:11</div>
+        acordei sem inchaço no rosto pelo 5o dia seguido. faz QUANTO TEMPO que isso não acontecia
+        <div class="wpp-t">há 2 dias · 07:14</div>
       </div>
       <div class="wpp-msg">
-        tô dormindo de verdade pela primeira vez em anos. obg por isso
-        <div class="t">há 2 dias · 08:52</div>
+        não sei explicar mas a urgência some. é tipo... o armário tá lá mas eu não fui
+        <div class="wpp-t">há 4 dias · 23:02</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ OFERTA ══ -->
+<!-- ══════════ COMO USAR ══════════ -->
+<section class="sec-uso">
+  <div class="c tc">
+    <span class="sec-label">como funciona na prática</span>
+    <h2 style="font-size:clamp(22px,3.5vw,30px);max-width:440px;margin:0 auto;">Simples. Direto. Sem burocracia.</h2>
+
+    <div class="uso-steps">
+      <div class="uso-step">
+        <span class="uso-num">1</span>
+        <h4>Deite-se</h4>
+        <p>Na cama, antes de dormir. Com ou sem fone. Celular do lado ou fone de ouvido — o que for mais confortável.</p>
+      </div>
+      <div class="uso-step">
+        <span class="uso-num">2</span>
+        <h4>Aperte play</h4>
+        <p>12 minutos. Você não precisa prestar atenção, fazer nada, nem ficar acordada até o fim. A maioria adormece no meio.</p>
+      </div>
+      <div class="uso-step">
+        <span class="uso-num">3</span>
+        <h4>Repita toda noite</h4>
+        <p>Efeito é cumulativo. A maioria percebe diferença na primeira semana. Mudanças mais profundas aparecem com consistência.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ OFERTA ══════════ -->
 <section class="sec-offer" id="oferta">
   <div class="c tc" style="position:relative;z-index:1;">
     <span class="sec-label">escolha seu protocolo</span>
-    <h2 style="font-size:clamp(24px,4vw,36px);max-width:440px;margin:0 auto 12px;">Comece esta noite.</h2>
-    <p style="font-size:15px;color:#5A5048;max-width:400px;margin:0 auto;font-weight:300;line-height:1.8;">Acesso digital imediato. Em menos de 3 minutos você está pronta.</p>
+    <h2 style="font-size:clamp(24px,4vw,36px);max-width:420px;margin:0 auto 12px;">Comece esta noite.</h2>
+    <p style="font-size:15px;color:#5A5048;max-width:380px;margin:0 auto;font-weight:300;line-height:1.8;">Você vai usar ainda hoje. Em menos de 3 minutos está pronta.</p>
 
     <div class="offer-grid">
-      <!-- BASIC -->
       <div class="ocard">
         <div class="oname">Essencial</div>
         <div class="osub">Protocolo Noturno</div>
@@ -399,7 +488,7 @@ footer p{font-size:12px;line-height:1.75;max-width:600px;margin:0 auto;opacity:.
           <span class="pref">R$</span><span class="val">9</span><span class="cts">,90</span>
         </div>
         <ul class="oitems">
-          <li><span class="ck">✓</span> FemSync Audio principal (12 min)</li>
+          <li><span class="ck">✓</span> FemSync Audio (12 min)</li>
           <li><span class="ck">✓</span> Acesso vitalício no celular</li>
           <li><span class="ck">✓</span> Guia de uso e instruções</li>
           <li><span class="ck">✓</span> Entrega digital imediata</li>
@@ -408,22 +497,21 @@ footer p{font-size:12px;line-height:1.75;max-width:600px;margin:0 auto;opacity:.
         <div class="oguarantee">Garantia de 7 dias · Devolução sem burocracia</div>
       </div>
 
-      <!-- PREMIUM -->
       <div class="ocard prem">
         <div class="obadge">✦ Mais escolhido</div>
         <div class="oname">Protocolo Completo</div>
-        <div class="osub">Experiência Profunda</div>
+        <div class="osub">Interrupção Profunda</div>
         <div class="oprice">
           <span class="de">De R$97,00</span>
           <span class="pref">R$</span><span class="val">17</span><span class="cts">,90</span>
         </div>
         <ul class="oitems">
           <li><span class="ck">✓</span> FemSync Audio principal (12 min)</li>
-          <li><span class="ck gd">✦</span> <span class="bon"><strong>Áudio de Sono Profundo</strong> — relaxamento total</span></li>
-          <li><span class="ck gd">✦</span> <span class="bon"><strong>Protocolo Anti-Urgência</strong> — para noites difíceis</span></li>
-          <li><span class="ck gd">✦</span> <span class="bon"><strong>Guia: Relação com Comida</strong> — PDF + áudio guiado</span></li>
+          <li><span class="ck gd">✦</span> <span class="bon"><strong>Protocolo Anti-Urgência</strong> — para noites de crise</span></li>
+          <li><span class="ck gd">✦</span> <span class="bon"><strong>Áudio de Sono Profundo</strong> — desaceleração total</span></li>
+          <li><span class="ck gd">✦</span> <span class="bon"><strong>Guia: Comida e Emoção</strong> — PDF + áudio guiado</span></li>
           <li><span class="ck gd">✦</span> <span class="bon"><strong>Ritual dos 7 Primeiros Dias</strong> — sequência de entrada</span></li>
-          <li><span class="ck gd">✦</span> <span class="bon"><strong>Áudio para Ansiedade Noturna</strong></span></li>
+          <li><span class="ck gd">✦</span> <span class="bon"><strong>Áudio para Noites de Ansiedade</strong></span></li>
           <li><span class="ck">✓</span> Atualizações incluídas</li>
         </ul>
         <a href="#" class="btn btn-primary" style="width:100%;display:block;text-align:center;">Ativar Protocolo Completo</a>
@@ -432,12 +520,12 @@ footer p{font-size:12px;line-height:1.75;max-width:600px;margin:0 auto;opacity:.
     </div>
 
     <div class="urgency">
-      Quanto mais tempo o ciclo continua sem interrupção, mais automatizado ele fica. Não existe momento ideal — existe o de agora.
+      Cada noite que o ciclo se repete, ele fica um pouco mais automático. Não existe segunda-feira ideal. Existe esta noite.
     </div>
   </div>
 </section>
 
-<!-- ══ TRUST ══ -->
+<!-- ══════════ TRUST ══════════ -->
 <section class="sec-trust">
   <div class="trust-row">
     <div class="tbadge"><div class="tbadge-icon">🔒</div><span>Pagamento seguro</span></div>
@@ -448,51 +536,51 @@ footer p{font-size:12px;line-height:1.75;max-width:600px;margin:0 auto;opacity:.
   </div>
 </section>
 
-<!-- ══ FAQ ══ -->
+<!-- ══════════ FAQ ══════════ -->
 <section class="sec-faq">
   <div class="c tc">
     <span class="sec-label">dúvidas</span>
     <h2 style="font-size:clamp(22px,3.5vw,30px);">Respostas diretas</h2>
     <div class="faq-list">
       <div class="faq-item">
+        <button class="faq-q">Isso é hipnose?</button>
+        <div class="faq-a"><p>Não. FemSync é um protocolo de áudio com camadas de frequência sonora relaxante — sem sugestão, sem voz guiada comandando comportamentos. É estimulação auditiva direcionada ao relaxamento, não hipnose.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Funciona mesmo dormindo?</button>
+        <div class="faq-a"><p>Sim, e esse é um dos usos mais comuns. A maioria das usuárias não chega ao final antes de adormecer. O sistema nervoso continua processando os estímulos sonoros mesmo em sono leve — que é exatamente quando a transição para descanso profundo acontece.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Quando vou sentir diferença?</button>
+        <div class="faq-a"><p>A maioria percebe qualidade de sono diferente já na primeira semana. Redução em urgência noturna costuma aparecer entre 2 e 4 semanas de uso consistente. O processo é gradual — e por isso tende a ser permanente, não temporário.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Preciso de fone de ouvido?</button>
+        <div class="faq-a"><p>Recomendamos fone, especialmente para o Protocolo Completo com camadas binaurais. Mas o áudio principal funciona bem no alto-falante do celular. O mais importante é o que for confortável para dormir.</p></div>
+      </div>
+      <div class="faq-item">
         <button class="faq-q">Funciona para mulheres acima dos 40?</button>
-        <div class="faq-a"><p>Sim. O mecanismo é o relaxamento do sistema nervoso, que responde a frequências sonoras independente da faixa etária. Mulheres em períodos de maior instabilidade emocional e hormonal têm reportado resultados especialmente significativos.</p></div>
+        <div class="faq-a"><p>Sim. O mecanismo é o relaxamento do sistema nervoso, que responde a estimulação sonora independente da faixa etária. Mulheres em períodos de maior instabilidade emocional reportam resultados especialmente significativos.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Preciso fazer dieta junto?</button>
-        <div class="faq-a"><p>Não há nenhuma exigência. O FemSync trabalha com relaxamento e sono. Muitas usuárias relatam que os padrões alimentares melhoram gradualmente — sem nenhuma restrição imposta.</p></div>
+        <button class="faq-q">É produto físico? Preciso esperar chegar?</button>
+        <div class="faq-a"><p>Não. FemSync é 100% digital. Após a compra, acesso imediato pelo celular — sem espera, sem frete. Você usa ainda esta noite.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q">Quando começo a perceber diferença?</button>
-        <div class="faq-a"><p>A maioria percebe qualidade de sono diferente na primeira semana. Mudanças em urgência noturna e inchaço costumam aparecer entre 2 e 4 semanas de uso consistente. O processo é gradual — e por isso tende a durar.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Posso usar enquanto durmo?</button>
-        <div class="faq-a"><p>Sim, e essa é uma das formas mais eficazes. A maioria das usuárias não chega ao final do áudio antes de adormecer — o que é exatamente o objetivo.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Precisa de fone de ouvido?</button>
-        <div class="faq-a"><p>Recomendamos fone, especialmente para o Protocolo Completo. Mas o áudio principal funciona bem no alto-falante do celular. O mais importante é o que for confortável para você dormir.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">É produto físico?</button>
-        <div class="faq-a"><p>Não. FemSync é 100% digital. Após a compra, acesso imediato — sem espera, sem frete. Você usa ainda hoje à noite.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">E se eu não sentir resultado?</button>
-        <div class="faq-a"><p>7 dias de garantia. Se por qualquer motivo não ficar satisfeita, devolvemos 100% do valor sem burocracia e sem perguntas. O risco é completamente nosso.</p></div>
+        <button class="faq-q">E se não funcionar pra mim?</button>
+        <div class="faq-a"><p>7 dias de garantia total. Se por qualquer motivo não ficar satisfeita, devolvemos 100% do valor sem burocracia e sem perguntas. O risco é completamente nosso.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ CLOSE ══ -->
+<!-- ══════════ CLOSE ══════════ -->
 <section class="sec-close">
   <div class="c tc">
-    <h2>Você não precisa mais<br>lutar contra si mesma à noite.</h2>
-    <p class="close-sub">Não é sobre força de vontade. É sobre dar ao seu sistema nervoso o sinal que ele precisa para finalmente descansar.</p>
-    <p class="close-q">"Doze minutos. Toda noite. É o suficiente para começar a mudar o ciclo."</p>
-    <a href="#oferta" class="btn btn-primary">Quero Recuperar Meu Controle Esta Noite</a>
+    <h2>Você não precisa mais<br>sobreviver às suas próprias noites.</h2>
+    <p class="close-sub">Não é sobre força de vontade. É sobre interromper o estado que gera o ciclo — antes que ele comece.</p>
+    <p class="close-q">"12 minutos antes de dormir. Todo dia. É o suficiente para o ciclo começar a mudar."</p>
+    <a href="#oferta" class="btn btn-primary">Quero Interromper Esse Ciclo Hoje</a>
     <div class="close-micro">A partir de R$9,90 · Acesso imediato · Garantia de 7 dias</div>
   </div>
 </section>
@@ -504,13 +592,13 @@ footer p{font-size:12px;line-height:1.75;max-width:600px;margin:0 auto;opacity:.
     <a href="#">Suporte</a>
     <a href="#">Contato</a>
   </div>
-  <p>© 2024 FemSync · Produto digital para bem-estar e relaxamento feminino<br>
-  Os resultados variam individualmente. Este produto não é um medicamento e não substitui tratamento médico ou nutricional. As afirmações não foram avaliadas por órgãos regulatórios de saúde.</p>
+  <p>© 2024 FemSync · Produto digital para bem-estar e relaxamento<br>
+  Os resultados variam individualmente. Este produto não é um medicamento e não substitui tratamento médico, nutricional ou psicológico. As afirmações não foram avaliadas por órgãos regulatórios de saúde.</p>
 </footer>
 
 <div class="sticky" id="sticky">
   <span class="sticky-txt"><strong>FemSync</strong> — Protocolo Noturno Feminino</span>
-  <a href="#oferta" class="btn btn-primary" style="padding:12px 28px;font-size:14px;">Começar Hoje — R$9,90</a>
+  <a href="#oferta" class="btn btn-primary" style="padding:12px 28px;font-size:14px;">Interromper o Ciclo — R$9,90</a>
 </div>
 
 <script>
@@ -522,9 +610,9 @@ document.querySelectorAll('.faq-q').forEach(btn=>{
     if(!open)item.classList.add('open');
   });
 });
-const hero=document.querySelector('.hero');
-const sticky=document.getElementById('sticky');
-new IntersectionObserver(e=>{sticky.classList.toggle('on',!e[0].isIntersecting);},{threshold:0}).observe(hero);
+new IntersectionObserver(e=>{
+  document.getElementById('sticky').classList.toggle('on',!e[0].isIntersecting);
+},{threshold:0}).observe(document.querySelector('.hero'));
 </script>
 </body>
 </html>
